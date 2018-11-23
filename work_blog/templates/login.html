@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    我的网站|登录
+{% endblock title %}
+
+{% block nav_login_active %}active{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="raw">
+            <div class="col-xs-4 col-xs-offset-4">
+                {% if not user.is_authenticated %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                登录
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="" method="POST">
+                                <!-- 去除用户名和密码后面的冒号 -->
+                                {% for field in login_form %}
+                                    <label for="{{ field_id_for_label }}">{{ field.label }}</label>
+                                    {{ field }}
+                                    <p class="text-danger">{{ field.errors.as_text }}</p>
+                                {% endfor %}
+                                <span class="text-danger">{{ login_form.non_field_errors }}</span>
+                                <div class="clearfix"></div>
+                                <a href="{% url 'user:forgot_password' %}" class="pull-left">忘记密码?</a>
+                                <input type="submit" name="提交" value="登录" class="btn btn-primary pull-right" >
+                                {{ form.as_p }}
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                    </div>
+                {% else %}
+                    <span class="logout-skip">已登录,跳转到首页...<br>若无法自动跳转,<a href="{% url 'home' %}">请点击</a></span>
+                    <script type="text/javascript">
+                        // 设置延时函数,延时3s跳转
+                        setTimeout(function(){window.location.href='{% url 'home' %}'});
+                    </script>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin-top: 70px!important;
+}
+ul{
+    list-style-type: none!important;
+}
+ul.navbar-right {
+    margin-right: 0;
+}
+span.logout-skip {
+    text-align: center;
+    position: absolute;
+    margin-top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+footer.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+footer {
+    text-align: center;
+    background-color: #d2d8dd;
+    padding: 1.5em;
+    font-size: 16px;
+}
