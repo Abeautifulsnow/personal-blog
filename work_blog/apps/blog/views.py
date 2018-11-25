@@ -5,7 +5,7 @@ from django.db.models import Count
 from django.contrib.contenttypes.models import ContentType
 
 from blog.models import BlogType, Blog
-from work_blog.settings import EACH_PAGE_BLOGS_NUM
+from work_blog.settings.base import EACH_PAGE_BLOGS_NUM
 from read_statistics.utils import read_statistics_once_read
 # Create your views here.
 

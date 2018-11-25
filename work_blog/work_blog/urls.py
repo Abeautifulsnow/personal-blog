@@ -19,7 +19,7 @@ from django.views.static import serve
 from django.conf.urls.static import static
 
 from work_blog.views import HomeView
-from work_blog.settings import MEDIA_URL, MEDIA_ROOT
+from work_blog.settings.base import MEDIA_URL, MEDIA_ROOT
 
 urlpatterns = [
     # 主页
