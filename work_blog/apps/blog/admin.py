@@ -8,7 +8,7 @@ class BlogTypeAdmin(admin.ModelAdmin):
 
 # @admin.register(Blog)---注册方式二
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'blog_type', 'author', 'get_blog_readnum', 'create_time',  'update_time']
+    list_display = ['title', 'id', 'blog_type', 'author', 'get_blog_readnum', 'create_time',  'update_time']
 
 # # @admin.register(ReadNum)---注册方式二
 # class ReadNumAdmin(admin.ModelAdmin):

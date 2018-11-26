@@ -29,3 +29,15 @@ footer {
     padding: 1.5em;
     font-size: 16px;
 }
+div.page-not-found {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+div.page-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

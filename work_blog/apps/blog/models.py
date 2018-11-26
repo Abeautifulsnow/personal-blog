@@ -28,7 +28,7 @@ class Blog(models.Model, ReadNumExpandMethod):
     """
     博文主体
     """
-    title = models.CharField(max_length=50, verbose_name='博文')
+    title = models.CharField(max_length=200, verbose_name='博文')
     blog_type = models.ForeignKey(BlogType, on_delete=models.CASCADE, verbose_name='博客类型')
     # django-ckeditor富文本编辑器
     content = RichTextUploadingField()
