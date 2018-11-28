@@ -50,8 +50,15 @@ div.comment {
     margin-bottom: 0.5em;
     padding-bottom: 0.5em;
 }
+div.comment div.blog-comment {
+    margin-left: 2em;
+    margin-top: 0.5em;
+}
 div.reply {
     margin-left: 2em;
+}
+div.reply div.reply-comment {
+    margin-top: 1em;
 }
 div#reply_content_container {
     border: 1px solid #d1d1d1;

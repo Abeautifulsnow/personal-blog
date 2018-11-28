@@ -25,9 +25,10 @@ footer.fixed-bottom {
 }
 footer {
     text-align: center;
-    background-color: #d2d8dd;
+    background-color: #0e1113;
     padding: 1.5em;
     font-size: 16px;
+    color: azure;
 }
 div.page-not-found {
     position: absolute;

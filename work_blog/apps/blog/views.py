@@ -1,12 +1,16 @@
 # coding:utf-8
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.contrib.contenttypes.models import ContentType
+from django.http import Http404, HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
-from blog.models import BlogType, Blog
+from .models import BlogType, Blog
 from work_blog.settings.base import EACH_PAGE_BLOGS_NUM
 from read_statistics.utils import read_statistics_once_read
+from .forms import BlogForm
 # Create your views here.
 
 
@@ -78,6 +82,11 @@ def blog_list(request):
     """
     all_blogs = Blog.objects.all()
 
+    # 搜索功能
+    search_keywords = request.GET.get('keywords', '')
+    if search_keywords:
+        all_blogs = all_blogs.filter(Q(title__icontains=search_keywords)|Q(content__icontains=search_keywords))
+
     # 调用get_blog_list_common函数中的context
     context = get_blog_list_common(request, all_blogs)
     return render(request, 'blog_list.html', context)
@@ -133,3 +142,29 @@ def blog_detail(request, blog_pk):
     # step1：给浏览器设置cookie，用于判断
     response.set_cookie(read_cookie_key, 'true')  # 阅读cookie标记
     return response
+
+@login_required
+def blog_edit(request, blog_pk):
+    """
+    博客内容编辑
+    """
+    blog = Blog.objects.get(id=blog_pk)
+    
+    if request.user != blog.author:
+        raise Http404
+    
+    if request.method == 'POST':
+        form = BlogForm(instance=blog, data=request.POST)
+        if form.is_valid():
+            blog.title = request.POST['title']
+            blog.content = request.POST['content']
+            blog.save()
+            return HttpResponseRedirect(reverse('blog:blog_list', args=[blog_pk]))
+    else:
+        form = BlogForm()
+    
+    context = {
+        'blog': blog,
+        "form": form,
+    }
+    return render(request, 'blog_edit.html', context)
