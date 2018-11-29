@@ -25,7 +25,7 @@
                                     <a href="{% url 'blog:blog_detail' blog.id %}">{{ blog.title }}</a>
                                 </h3>
                                 <p>{{ blog.content|striptags|truncatechars:100 }}&nbsp;
-                                    {% comment %} <a href="{% url 'blog:blog_edit' blog.id %}">编辑</a> {% endcomment %}
+                                    <a href="/admin/blog/blog/{{ blog.id }}/change/" target="_blank" style="text-decoration:underline;">编辑</a>
                                 </p>
                                 <br>
                                 <p class="blog-info">

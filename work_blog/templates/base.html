@@ -35,15 +35,47 @@
                             <span class="glyphicon glyphicon-pencil"></span>&nbsp;博客
                         </a>
                     </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-link"></span>&nbsp;相关链接 <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://www.cnblogs.com/">
+                                <span class="glyphicon glyphicon-globe"></span>&nbsp;cnblog
+                            </a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://github.com/">
+                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Github
+                            </a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://gitee.com/">
+                                <span class="glyphicon glyphicon-globe"></span>&nbsp;码云
+                            </a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://docs.djangoproject.com/">
+                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Django教程
+                            </a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://www.python.org/">
+                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Python教程
+                            </a></li>
+                        </ul>
+                    </li>
                 </ul>
+
 
                 <ul class="nav navbar-nav navbar-right">
                     {% if not user.is_authenticated %}
                         <li class="{% block nav_login_active %}{% endblock %}">
-                            <a href="{% url 'user:login' %}?from={{ request.get_full_path }}">登录</a>
+                            <a href="{% url 'user:login' %}?from={{ request.get_full_path }}">
+                                <span class="glyphicon glyphicon-log-in"></span>&nbsp;登录
+                            </a>
                         </li>
                         <li class="{% block nav_register_active %}{% endblock %}">
-                            <a href="{% url 'user:register' %}?from={{ request.get_full_path }}">注册</a>
+                            <a href="{% url 'user:register' %}?from={{ request.get_full_path }}">
+                                <span class="glyphicon glyphicon-pushpin"></span>&nbsp;注册
+                            </a>
                         </li>
                     {% else %}
                         <li class="dropdown">

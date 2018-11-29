@@ -1,6 +1,6 @@
 # encoding: utf-8
 from django.urls import path
-from blog.views import blog_detail, blogs_type, blog_list, blogs_by_date, blog_edit
+from blog.views import blog_detail, blogs_type, blog_list, blogs_by_date
 
 urlpatterns = [
     path("", blog_list, name="blog_list"),

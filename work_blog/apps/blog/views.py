@@ -75,7 +75,7 @@ def get_blog_list_common(request, all_blogs):
     }
     return context
 
-    
+
 def blog_list(request):
     """
     博客列表页
@@ -143,28 +143,28 @@ def blog_detail(request, blog_pk):
     response.set_cookie(read_cookie_key, 'true')  # 阅读cookie标记
     return response
 
-@login_required
-def blog_edit(request, blog_pk):
-    """
-    博客内容编辑
-    """
-    blog = Blog.objects.get(id=blog_pk)
+# @login_required
+# def blog_edit(request, blog_pk):
+#     """
+#     博客内容编辑
+#     """
+#     blog = Blog.objects.get(id=blog_pk)
     
-    if request.user != blog.author:
-        raise Http404
+#     if request.user != blog.author:
+#         raise Http404
     
-    if request.method == 'POST':
-        form = BlogForm(instance=blog, data=request.POST)
-        if form.is_valid():
-            blog.title = request.POST['title']
-            blog.content = request.POST['content']
-            blog.save()
-            return HttpResponseRedirect(reverse('blog:blog_list', args=[blog_pk]))
-    else:
-        form = BlogForm()
+#     if request.method == 'POST':
+#         form = BlogForm(instance=blog, data=request.POST)
+#         if form.is_valid():
+#             blog.title = request.POST['title']
+#             blog.content = request.POST['content']
+#             blog.save()
+#             return HttpResponseRedirect(reverse('blog:blog_list', args=[blog_pk]))
+#     else:
+#         form = BlogForm()
     
-    context = {
-        'blog': blog,
-        "form": form,
-    }
-    return render(request, 'blog_edit.html', context)
+#     context = {
+#         'blog': blog,
+#         "form": form,
+#     }
+#     return render(request, 'blog_edit.html', context)
