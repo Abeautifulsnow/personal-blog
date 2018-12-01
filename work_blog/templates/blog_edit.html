@@ -7,24 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ blog_title }}编辑</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog.css' %}">
     <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
     <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 </head>
 <body>
-    <form action="{% url 'blog:blog_edit' blog.id %}" method="post">
-        <input type="hidden" name = "post_id" value="{{ post_id | default:'0'}}"/>
-            <label>
-                <h4 style="font-weight: bold">标题</h4>
-                <input type="text" name="title" style="width: 950px;font-family: '微软雅黑 Light';" value="{{ blog.title }}"/>
-            </label>
-            <br/>
-            <label>
-                <h4 style="font-weight: bold">博文</h4>
-            </label>
-            {{ form.content }}
-            <br/>
-        <button type="submit">保存发布</button>
-        {% csrf_token %}
-    </form>
+    <section>
+        <form action="{% url 'blog:blog_edit' blog.id %}" method="post">
+            <input type="hidden" name = "post_id" value="{{ post_id | default:'0'}}"/>
+                <label>
+                    <h4 style="font-weight: bold">标题</h4>
+                    <input type="text" name="title" style="width: 70%;font-family: '微软雅黑 Light';" value="{{ blog.title }}"/>
+                </label>
+                <br/>
+                <label>
+                    <h4 style="font-weight: bold">分类</h4>
+                    <input type="text" name="title" style="width: 70%;font-family: '微软雅黑 Light';" value="{{ blog.blog_type }}"/>
+                </label>
+                <br/>
+                <label>
+                    <h4 style="font-weight: bold">博文</h4>
+                </label>
+                <textarea id="content" name="content" class="ckeditor" style="height: 80%">
+                    {{ blog.content }}
+                </textarea>
+                <br/>
+            <button type="submit">保存发布</button>
+            {% csrf_token %}
+        </form>
+    </section>
+
+    <script type="text/javascript">
+        var editor = null;
+        window.onload = function () {
+            editor = CKEDITOR.replace("content"); //参数‘content’是textarea元素的name属性值，而非id属性值 
+        }
+        function savaData()(
+        　　var content = CKEDITOR.instances.content.getData(); //获取值
+        }
+    </script>
+
 </body>
 </html>

@@ -1,17 +1,36 @@
 # coding:utf-8
+import json
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Count, Q
 from django.contrib.contenttypes.models import ContentType
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
 
 from .models import BlogType, Blog
 from work_blog.settings.base import EACH_PAGE_BLOGS_NUM
 from read_statistics.utils import read_statistics_once_read
-from .forms import BlogForm
+# from .forms import BlogForm
+from user.models import UserProfile
 # Create your views here.
+
+# 装饰器，管理员判断
+def check_amdin(func):
+    def wrapper(request):
+        if request.user.is_authenticated():
+            if request.user.is_superuser:
+                return func(request)
+        context = {
+            'redirect_to': '/',
+            'goto_time': 3000,
+            'goto_page': True,
+            'msg': '您不是管理员，不能进入这个界面'
+        }
+        return render(request, 'error.html', context)
+
+    return wrapper
 
 
 def get_blog_list_common(request, all_blogs):
@@ -143,28 +162,86 @@ def blog_detail(request, blog_pk):
     response.set_cookie(read_cookie_key, 'true')  # 阅读cookie标记
     return response
 
-# @login_required
-# def blog_edit(request, blog_pk):
-#     """
-#     博客内容编辑
-#     """
-#     blog = Blog.objects.get(id=blog_pk)
+@login_required
+def blog_edit(request, blog_pk):
+    """
+    博客内容编辑
+    """
+    blog = Blog.objects.get(id=blog_pk)
     
-#     if request.user != blog.author:
-#         raise Http404
+    if request.user != blog.author:
+        raise Http404
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+
+        blog.title = title
+        blog.content = content
+        blog.save()
+        return HttpResponseRedirect(reverse('blog:blog_list'))
+    else:
+        pass
+    context = {
+        'blog': blog,
+    }
+    return render(request, 'blog_edit.html', context)
+
+@check_amdin
+def add(request):
+    blog_types = BlogType.objects.all()
+    data = {
+        'blog_types': blog_types,
+    }
+    return render(request, 'add_blog.html', data, context_instance=RequestContext(request))
+
+@check_amdin
+def add_ajax(request):
+    data = {}
+    try:
+        if request.method != 'POST':
+            raise Exception('methos error')
+        #获取数据
+        #这些相关数据都是前端页面表单中的字段
+        #且和我博客模型一一对应，你根据实际情况修改即可
+        blog_title = request.POST.get('title')
+        blog_types = request.POST.getlist('blog_type')
+        blog_content = request.POST.get('content')
+
+        #处理blog_types
+        blog_type_ids = []
+        for blog_type in blog_types:
+            try:
+                blog_type_id = int(blog_type)
+                blog_type_ids.append(blog_type_id)
+            except:
+                pass
+        if len(blog_title) <= 0 or len(blog_title) >= 50:
+            raise Exception('请输入一个不超过50个字符的标题')
+        if len(blog_type_ids) < 1:
+            raise Exception('请选择"推荐"之外的至少一个类别')
+        if len(blog_content) == 0:
+            raise Exception('尚未写入任何博文')
+        
+        #新增博文
+        blog = Blog()
+        blog.title = blog_title #标题
+        
+        #这里后面我还要修改，统一用Django的用户系统
+        #Author是一个作者模型
+        blog.author = UserProfile.objects.all()[0].username
+        
+        blog.content = blog_content #博客内容
+        blog.save()
+ 
+        #处理多对多，需要博文保存后才能处理，且新增后无需使用save方法
+        for blog_type in BlogType.objects.filter(id__in = blog_type_ids):
+            blog.blog_type.add(blog_type)        
+ 
+        #返回结果
+        data['success'] = True
+        data['message'] = reverse('blog:blog_detail', args = [blog.id,])
+    except Exception as e:
+        data['success'] = False
+        data['message'] = e.message
     
-#     if request.method == 'POST':
-#         form = BlogForm(instance=blog, data=request.POST)
-#         if form.is_valid():
-#             blog.title = request.POST['title']
-#             blog.content = request.POST['content']
-#             blog.save()
-#             return HttpResponseRedirect(reverse('blog:blog_list', args=[blog_pk]))
-#     else:
-#         form = BlogForm()
-    
-#     context = {
-#         'blog': blog,
-#         "form": form,
-#     }
-#     return render(request, 'blog_edit.html', context)
+    return HttpResponse(json.dumps(data), content_type = 'application/json')

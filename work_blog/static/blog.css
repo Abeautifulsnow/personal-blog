@@ -20,15 +20,17 @@ div.paginator{
 ul.blog-info-description{
     list-style-type: none;
     margin-bottom: 0em;
+    border-bottom: 2px outset;
 }
 ul.blog-info-description li{
     display: inline-block;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 div.blog-content{
     letter-spacing: 1pt;
     line-height: 1.5;
     margin-bottom: 2em;
+    margin-top: 2em;
 }
 div.blog-more{
     margin-top: 1em;
@@ -81,4 +83,10 @@ div.like .active {
 }
 div#comment_list {
     margin-bottom: 2em;
+}
+div#cke_content {
+    width: 70%;
+}
+div#cke_1_contents {
+    height: 500px !important;
 }
