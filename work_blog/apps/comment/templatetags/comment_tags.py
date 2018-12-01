@@ -5,7 +5,6 @@ from django.contrib.contenttypes.models import ContentType
 
 from ..models import Comment
 from ..forms import CommentForm
-from blog.forms import BlogForm
 
 register = template.Library()
 
