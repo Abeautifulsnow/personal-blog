@@ -84,9 +84,6 @@ div.like .active {
 div#comment_list {
     margin-bottom: 2em;
 }
-div#cke_content {
-    width: 70%;
-}
-div#cke_1_contents {
-    height: 500px !important;
+div.blog-content pre {
+    padding: 0!important;
 }

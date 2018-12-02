@@ -7,6 +7,7 @@ from django.db.models import Sum
 from django.core.cache import cache
 
 from blog.models import Blog
+from blog.utils import change_info
 from read_statistics.utils import get_seven_days_ReadData, get_today_HotData, get_yesterday_HotData
 
 
@@ -43,6 +44,7 @@ def HomeView(request):
     else:
         print('Use cache ')
 
+    change_info(request)
     context = {
         'dates': dates,
         'read_nums': read_nums,

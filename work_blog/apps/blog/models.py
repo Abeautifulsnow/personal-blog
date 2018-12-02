@@ -24,12 +24,27 @@ class BlogType(models.Model):
         return self.type_name
 
 
+class Tag(models.Model):
+    """
+    标签
+    """
+    name = models.CharField(max_length=30, verbose_name='博客标签')
+
+    class Meta:
+        verbose_name = '博客标签'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+
+
 class Blog(models.Model, ReadNumExpandMethod):
     """
     博文主体
     """
     title = models.CharField(max_length=200, verbose_name='博文')
     blog_type = models.ForeignKey(BlogType, on_delete=models.CASCADE, verbose_name='博客类型')
+    tag = models.ManyToManyField(Tag, verbose_name='博客标签')
     # django-ckeditor富文本编辑器
     content = RichTextUploadingField()
     read_detail = GenericRelation(ReadDetail)
@@ -45,3 +60,32 @@ class Blog(models.Model, ReadNumExpandMethod):
     
     def __str__(self):
         return "<Blog: %s>" % self.title
+
+
+class UserIP(models.Model):
+    """
+    访问网站的ip地址和次数
+    """
+    ip = models.CharField(max_length=30, verbose_name='IP地址')
+    visit_count = models.IntegerField(default=0, verbose_name='访问次数')
+
+    class Meta:
+        verbose_name = '访问用户信息'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.ip
+
+
+class VisitNum(models.Model):
+    """
+    访问网站的总次数
+    """
+    all_count = models.IntegerField(default=0, verbose_name='网站访问总次数')
+
+    class Meta:
+        verbose_name = '网站访问总次数'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return str(self.all_count)

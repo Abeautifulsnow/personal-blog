@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
-from .models import BlogType, Blog
+from .models import *
 from work_blog.settings.base import EACH_PAGE_BLOGS_NUM
 from read_statistics.utils import read_statistics_once_read
 # from .forms import BlogForm
