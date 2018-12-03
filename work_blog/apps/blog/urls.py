@@ -1,6 +1,6 @@
 # encoding: utf-8
-from django.urls import path
-from blog.views import blog_detail, blogs_type, blog_list, blogs_by_date, blog_edit, add_ajax, add
+from django.urls import path, re_path
+from blog.views import blog_detail, blogs_type, blogs_tags, blog_list, blogs_by_date, blog_edit, add_ajax, add
 
 urlpatterns = [
     path("", blog_list, name="blog_list"),
@@ -8,13 +8,15 @@ urlpatterns = [
     path('<int:blog_pk>/', blog_detail, name='blog_detail'),
     # 增加博客页面
     path('blog_add', add, name='blog_add'),
-    path("blog_add_ajax", add_ajax, name="add_ajax"),
+    path('blog_add_ajax', add_ajax, name="add_ajax"),
     # 博客编辑
     path('edit/<int:blog_pk>/', blog_edit, name="blog_edit"),
     # 博客分类页面
-    path("type/<int:blog_type_pk>/", blogs_type, name="blogs_type"),
+    path('type/<int:blog_type_pk>/', blogs_type, name="blogs_type"),
+    # 博客标签页面
+    re_path(r'^tag/(?P<tag_pk>\d+)/$', blogs_tags, name='blogs_tags'),
     # 按日期分类
-    path("date/<int:year>/<int:month>", blogs_by_date, name="blogs_by_date")
+    path('date/<int:year>/<int:month>', blogs_by_date, name="blogs_by_date")
 ]
 
 app_name = 'blog'

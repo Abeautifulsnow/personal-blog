@@ -1,10 +1,17 @@
+div#blog_list_container {
+    margin-top: 6em;
+}
+div#panel_left div.panel-heading {
+    font-size: 20px;
+    color: black;
+}
 ul.blog-types{
     list-style-type: none;
 }
 div.blog:not(:last-child){
     margin-bottom: 2em;
     padding-bottom: 1em;
-    border-bottom: 1px solid #eee;
+    border-bottom: 2px solid #eee;
 }
 div.blog h3{
     margin-top: 0.5em;
@@ -25,6 +32,13 @@ ul.blog-info-description{
 ul.blog-info-description li{
     display: inline-block;
     margin-bottom: 1em;
+}
+div#blog_container {
+    margin-top: 6em;
+    margin-bottom: 2em;
+    background-color: #ffffff;
+    border: solid 2px #c3c3c3;
+    border-radius: 50px;
 }
 div.blog-content{
     letter-spacing: 1pt;
@@ -86,4 +100,12 @@ div#comment_list {
 }
 div.blog-content pre {
     padding: 0!important;
+}
+div.panel {
+    box-shadow: 5px 5px 10px white !important;
+}
+li.panel-detail {
+    margin-bottom: .5rem;
+    padding-bottom: .3rem;
+    border-bottom: 2px solid #eee;
 }

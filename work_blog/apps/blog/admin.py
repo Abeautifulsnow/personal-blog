@@ -43,7 +43,7 @@ class BlogAdmin(admin.ModelAdmin):
     # show_content.short_description = '博客内容'
 
 class UserIPAdmin(admin.ModelAdmin):
-    list_display = ['ip', 'visit_count']
+    list_display = ['id', 'ip', 'visit_count']
     list_per_page = 30
     list_filter = ['ip']
 

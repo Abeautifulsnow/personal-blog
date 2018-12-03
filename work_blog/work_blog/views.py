@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.db.models import Sum
 from django.core.cache import cache
 
-from blog.models import Blog
+from blog.models import Blog, BlogType
 from blog.utils import change_info
 from read_statistics.utils import get_seven_days_ReadData, get_today_HotData, get_yesterday_HotData
 
@@ -29,6 +29,8 @@ def HomeView(request):
     """
     首页
     """
+    blog_nums = Blog.objects.all().count()
+    blog_types = BlogType.objects.all()
     blog_content_type = ContentType.objects.get_for_model(Blog)
     dates, read_nums = get_seven_days_ReadData(blog_content_type)
     today_HotData = get_today_HotData(blog_content_type)
@@ -46,6 +48,8 @@ def HomeView(request):
 
     change_info(request)
     context = {
+        'blog_nums': blog_nums,
+        'blog_types': blog_types,
         'dates': dates,
         'read_nums': read_nums,
         'today_HotData': today_HotData,

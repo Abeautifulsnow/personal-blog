@@ -11,10 +11,10 @@
 {% endblock custom_css %}
 
 {% block content %}
-    <div class="container">
+    <div id="blog_list_container" class="container">
         <div class="raw">
             <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
-                <div class="panel panel-default">
+                <div id="panel_left" class="panel panel-info">
                     <div class="panel-heading">
                         {% block blog_list_title %}博客列表{% endblock blog_list_title %}
                     </div>
@@ -99,12 +99,18 @@
                 
             </div>
             <div class="hidden-xs col-sm-4 col-md-3 col-lg-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">博客分类</div>
+            <!--博客分类-->
+                <div id="panel-right" class="panel panel-info">
+                    <div class="panel-heading">
+                        <span style="color: black">博客分类</span>
+                        <span style="float: right">
+                            <a href="#">更多>>></a>
+                        </span>
+                    </div>
                     <div class="panel-body">
                         <ul class="blog-types">
                             {% for blog_type in blog_types %}
-                                <li>
+                                <li class="panel-detail">
                                     <a href="{% url 'blog:blogs_type' blog_type.id %}">
                                         {{ blog_type.type_name }}({{ blog_type.blog_set.count }}篇)
                                     </a>
@@ -115,16 +121,45 @@
                         </ul>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">日期归档</div>
+            <!--日期归档-->
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <span style="color: black;">日期归档</span>
+                        <span style="float: right">
+                            <a href="#">更多>>></a>
+                        </span>
+                    </div>
                     <div class="panel-body">
                         <ul>
                             {% for blog_date, blog_count in blog_dates.items %}
-                                <li>
+                                <li class="panel-detail">
                                     <a href="{% url 'blog:blogs_by_date' blog_date.year blog_date.month %}">
                                         {{ blog_date|date:'Y年m月' }}({{ blog_count }}篇)
                                     </a>
                                 </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            <!--标签云-->
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <span style="color: black">标签云</span>
+                        <span style="float: right">
+                            <a href="#">更多>>></a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            {% for tag in tags %}
+                                <li class="panel-detail">
+                                    <a href="{% url 'blog:blogs_tags' tag.id %}" id="{{ forloop.counter }}"
+                                        title="【{{ tag.name }}】标签下有{{ tag.blog_set.count }}篇博客">
+                                        {{ tag.name }}({{ tag.blog_set.count }}篇)
+                                    </a>
+                                </li>
+                            {% empty %}
+                                <li>暂无标签</li>
                             {% endfor %}
                         </ul>
                     </div>

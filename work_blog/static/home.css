@@ -5,15 +5,24 @@ h3.home-content{
     /*top: 50%;*/
     /*left: 50%;*/
     /*transform: translate(-50%,-50%);*/
-    margin-top: 4em;
-    margin-bottom: 2em;
+    padding-top: 3em;
+    padding-bottom: 2em;
+    margin-bottom: 1em;
+    color: palegoldenrod;
+    box-shadow: 10px 10px 5px lightblue;
 }
 div#container {
     margin: 0 auto;
     height:25em;
-    width: 35em;
-    max-width: 50em;
+    /*width: 35em;*/
+    /*max-width: 50em;*/
 
+}
+div#home_container1 {
+    margin-bottom: 4rem;
+}
+div#home_container2 {
+    margin-bottom: 6em;
 }
 div.hot-data {
     text-align: center;
@@ -22,8 +31,25 @@ div.hot-data {
 div.content-item {
     margin-bottom: 4em;
 }
+h4.home-category-title {
+    border-bottom: 2px rgba(17, 12, 13, 0.97) solid;
+    padding-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+div.home-category ul.list li {
+    margin-bottom: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+div.home-category ul.list a{
+    color: #333;
+    font-size: 16px;
+}
 h4.home-block-title {
-    border-bottom: 1px #ccc solid;
+    border-bottom: 2px rgba(17, 12, 13, 0.97) solid;
     padding-bottom: 10px;
     font-weight: bold;
     text-align: left;
@@ -38,4 +64,10 @@ div.home-block ul.list li {
 div.home-block ul.list a{
     color: #333;
     font-size: 16px;
+}
+ul.nav-tabs {
+    border-bottom: 2px rgba(17, 12, 13, 0.97) solid;
+}
+ul.nav-tabs>li>a {
+    padding: 7px 15px;
 }

@@ -38,6 +38,7 @@ def get_blog_list_common(request, all_blogs):
     共同代码模板
     """
     blog_types = BlogType.objects.all()
+    tags = Tag.objects.all()
     blog_dates = Blog.objects.dates('create_time', 'month', order='DESC')
     # 博客分页
     p = Paginator(all_blogs, EACH_PAGE_BLOGS_NUM)   # 每each_page_blogs_num篇分一页
@@ -88,6 +89,7 @@ def get_blog_list_common(request, all_blogs):
 
     context = {
         'page_of_blogs': page_of_blogs,
+        'tags': tags,
         'blog_types': blog_types,
         'page_range': page_range,
         'blog_dates': blog_dates_dict,
@@ -137,6 +139,18 @@ def blogs_by_date(request, year, month):
     # 在context字典中新增加key为'blog_by_date'的字典
     context['blog_by_date'] = blog_by_date
     return render(request, 'blogs_by_date.html', context)
+
+
+def blogs_tags(request, tag_pk):
+    """
+    博客标签云
+    """
+    tag = get_object_or_404(Tag, pk=tag_pk)
+    all_blogs = Blog.objects.filter(tag=tag)
+
+    context = get_blog_list_common(request, all_blogs)
+    context['tag'] = tag
+    return render(request, 'blogs_tags.html', context)
 
 
 def blog_detail(request, blog_pk):

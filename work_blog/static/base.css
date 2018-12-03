@@ -3,8 +3,10 @@
     padding: 0;
 }
 body{
-    margin-top: 70px!important;
-    background-color: #c2c2c226!important;
+    /*margin-top: 70px!important;*/
+    /*background-color: #c2c2c226!important;*/
+    background: url("/static/kuanping93.jpg") no-repeat center fixed!important;
+    background-size: 100% 100%;
 }
 ul{
     list-style-type: none!important;
