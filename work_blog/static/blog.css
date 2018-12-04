@@ -50,8 +50,8 @@ div.blog-content>p>img {
     display: block !important;
     max-width: 100% !important;
     height: auto !important;
-    margin-right: auto !important;
-    margin-left: auto !important;
+    /* margin-right: auto !important;
+    margin-left: auto !important; */
 }
 div.blog-more{
     margin-top: 1em;
