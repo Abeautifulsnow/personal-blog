@@ -46,7 +46,7 @@ class Blog(models.Model, ReadNumExpandMethod):
     blog_type = models.ForeignKey(BlogType, on_delete=models.CASCADE, verbose_name='博客类型')
     tag = models.ManyToManyField(Tag, verbose_name='博客标签')
     # django-ckeditor富文本编辑器
-    content = RichTextUploadingField()
+    content = RichTextUploadingField(verbose_name='博客文章')
     read_detail = GenericRelation(ReadDetail)
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='作者')
     create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
