@@ -12,7 +12,7 @@
 {% block nav_login_active %}active{% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div id="user_info_container" class="container">
         <div class="raw">
             <div class="col-xs-10 col-xs-offset-1">
                 {% if user.is_authenticated %}

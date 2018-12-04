@@ -3,10 +3,11 @@
     padding: 0;
 }
 body{
+    flex-direction: column;
     /*margin-top: 70px!important;*/
     /*background-color: #c2c2c226!important;*/
-    background: url("/static/kuanping93.jpg") no-repeat center fixed!important;
-    background-size: 100% 100%;
+    background: url("/static/kuanping93.jpg") no-repeat center center fixed!important;
+    background-size: 100% 100%!important;
 }
 ul{
     list-style-type: none!important;
@@ -17,7 +18,8 @@ ul.navbar-right {
 span.logout-skip {
     text-align: center;
     position: absolute;
-    margin-top: 20%;
+    font-size: 6rem
+    margin-top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
@@ -44,4 +46,13 @@ div.page-error {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+div#register_container div.panel {
+    margin-top: 8em;
+}
+div#login_container div.panel {
+    margin-top: 8em;
+}
+div#forget_container div.panel {
+    margin-top: 8em;
 }
