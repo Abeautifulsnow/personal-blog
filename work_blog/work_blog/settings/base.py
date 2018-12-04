@@ -150,6 +150,10 @@ CKEDITOR_CONFIGS = {
                     ),
 
         'extraPlugins': 'codesnippet', 
+        'width': 'auto',
+        'tabSpaces': 4,
+        'toolbarCanCollapse': True,
+        'codeSnippet_theme': 'railscasts',
     },
     'comment_ckeditor': {
         'toolbar': 'Custom',
