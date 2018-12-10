@@ -53,6 +53,12 @@ div.blog-content>p>img {
     /* margin-right: auto !important;
     margin-left: auto !important; */
 }
+div.blog-content>ul>li {
+    list-style-type: disc;
+}
+div.blog-content ul,ol {
+    margin-left: 2em;
+} 
 div.blog-more{
     margin-top: 1em;
 }
