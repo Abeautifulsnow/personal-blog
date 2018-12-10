@@ -18,7 +18,7 @@ from .base import *
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bg&tqaj8$he_jw1w=55#b3=*_h!*wuz%)lz=z7)fo8^rrg@5wz'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -27,14 +27,14 @@ ALLOWED_HOSTS = ['*']
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+DATABASE_PASSWORD = os.environ['DATABASE_PASSWORD']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'work_blog',
         'HOST': '127.0.0.1',
         'USER': 'root',
-        'PASSWORD': 'ln122920',
+        'PASSWORD': DATABASE_PASSWORD,
         'PORT': 3306,
     }
 }
@@ -44,6 +44,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.189.cn'              # 邮件服务器
 EMAIL_PORT = 25                         # 邮件服务器端口号
 EMAIL_HOST_USER = '15639936570@189.cn'  # 邮件用户
-EMAIL_HOST_PASSWORD = 'Lcp122920'       # 邮件用户密码
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']       # 邮件用户密码
 EMAIL_SUBJECT_PREFIX = '[大鹏的博客]'     # 邮件主题前缀
 EMAIL_USE_TLS = False                   # 是否使用TLS安全传输协议(用于在两个通信应用程序之间提供保密性和数据完整性)
