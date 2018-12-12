@@ -56,3 +56,20 @@ div#login_container div.panel {
 div#forget_container div.panel {
     margin-top: 8em;
 }
+div#panel_info {
+    margin-top: 30%;
+}
+div#panel_info div.panel-heading {
+    text-align: center;
+}
+div#panel_info div.panel-body>ul>li {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #eaeaea;
+    text-indent: 20px;
+    position: relative;
+}
+div#panel_info div.panel-body>ul>li>a {
+    float: right;
+    padding-right: 2em;
+}

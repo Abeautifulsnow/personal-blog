@@ -71,3 +71,11 @@ ul.nav-tabs {
 ul.nav-tabs>li>a {
     padding: 7px 15px;
 }
+div.tab-content div#profile p {
+    font-size: x-large !important;
+    padding: 3em !important;
+}
+div.tab-content div#messages p {
+    font-size: x-large !important;
+    padding: 3em !important;
+}
