@@ -149,7 +149,7 @@ CKEDITOR_CONFIGS = {
 
                     ),
 
-        'extraPlugins': 'codesnippet', 
+        'extraPlugins': ','.join(['codesnippet', 'uploadimage', 'widget', 'lineutils',]),
         'width': 'auto',
         'tabSpaces': 4,
         'toolbarCanCollapse': True,

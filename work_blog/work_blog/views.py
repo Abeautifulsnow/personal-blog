@@ -9,6 +9,7 @@ from django.core.cache import cache
 from blog.models import Blog, BlogType
 from blog.utils import change_info
 from read_statistics.utils import get_seven_days_ReadData, get_today_HotData, get_yesterday_HotData
+from read_statistics.models import ReadNum
 
 
 def get_seven_day_HotBlogs():
@@ -35,7 +36,16 @@ def HomeView(request):
     dates, read_nums = get_seven_days_ReadData(blog_content_type)
     today_HotData = get_today_HotData(blog_content_type)
     yesterday_HotData = get_yesterday_HotData(blog_content_type)
-
+    new_blogs = Blog.objects.all().order_by('-create_time')[:12]
+    
+    # 获取所有博客阅读量并排序
+    blog_dict = {}
+    nums = ReadNum.objects.all().order_by('-read_num')[:12]
+    for num in nums:
+        blog = Blog.objects.get(pk=num.object_id)
+        blog_all_readnum = num.read_num
+        blog_dict[blog] = blog_all_readnum
+    
     # 获取7天热门博客的缓存数据
     seven_day_HotBlog = cache.get('seven_day_HotBlog')
     if seven_day_HotBlog is None:
@@ -55,5 +65,7 @@ def HomeView(request):
         'today_HotData': today_HotData,
         'yesterday_HotData': yesterday_HotData,
         'seven_day_HotBlog': seven_day_HotBlog,
+        'new_blogs': new_blogs,
+        'blog_dict': blog_dict,
     }
     return render(request, 'home.html', context)

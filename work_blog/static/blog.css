@@ -58,6 +58,9 @@ div.blog-content>ul>li {
 }
 div.blog-content ul,ol {
     margin-left: 2em;
+}
+div.blog-content pre {
+    font-size: larger;
 } 
 div.blog-more{
     margin-top: 1em;
@@ -82,8 +85,11 @@ div.comment div.blog-comment {
     margin-left: 2em;
     margin-top: 0.5em;
 }
-div.reply {
+/* div.reply {
     margin-left: 2em;
+} */
+div.comment>blockquote {
+    font-size: unset!important;
 }
 div.reply div.reply-comment {
     margin-top: 1em;
@@ -111,9 +117,9 @@ div.like .active {
 div#comment_list {
     margin-bottom: 2em;
 }
-div.blog-content pre {
+/* div.blog-content pre {
     padding: 0!important;
-}
+} */
 div.panel {
     box-shadow: 5px 5px 10px white !important;
 }
