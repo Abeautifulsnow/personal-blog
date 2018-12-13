@@ -37,7 +37,8 @@
                             {% for blog_type in blog_types %}
                                 <li class="panel-detail">
                                     <a href="{% url 'blog:blogs_type' blog_type.id %}">
-                                        {{ blog_type.type_name }}({{ blog_type.blog_set.count }}篇)
+                                        {{ blog_type.type_name }}
+                                        <span style="float: right;">({{ blog_type.blog_set.count }}篇)</span>
                                     </a>
                                 </li>
                             {% empty %}
@@ -102,8 +103,8 @@
                             {% for new_blog in new_blogs %}
                                 <li>
                                     <a href="{% url 'blog:blog_detail' new_blog.id %}"
-                                       target="_blank">{{ new_blog.title }}</a>
-                                    ({{ new_blog.get_blog_readnum }})
+                                       target="_blank">{{ new_blog.title|truncatechars:22 }}</a>
+                                    <span>({{ new_blog.get_blog_readnum }})</span>
                                 </li>
                             {% empty %}
                                 <li>暂时没有新博客发表</li>
@@ -122,8 +123,8 @@
                             {% for blog, blog_readnum in blog_dict.items %}
                                 <li>
                                     <a href="{% url 'blog:blog_detail' blog.id %}"
-                                       target="_blank">{{ blog.title }}</a>
-                                    ({{ blog_readnum }})
+                                       target="_blank">{{ blog.title|truncatechars:22 }}</a>
+                                    <span>({{ blog_readnum }})</span>
                                 </li>
                             {% empty %}
                                 <li>今天暂时没有热门博客</li>
@@ -142,8 +143,8 @@
                             {% for hot_data in today_HotData %}
                                 <li>
                                     <a href="{% url 'blog:blog_detail' hot_data.object_id %}"
-                                       target="_blank">{{ hot_data.content_object.title }}</a>
-                                    ({{ hot_data.read_num }})
+                                       target="_blank">{{ hot_data.content_object.title|truncatechars:22 }}</a>
+                                    <span>({{ hot_data.read_num }})</span>
                                 </li>
                             {% empty %}
                                 <li>今天暂时没有热门博客</li>
@@ -159,8 +160,8 @@
                             {% for hot_data in yesterday_HotData %}
                                 <li>
                                     <a href="{% url 'blog:blog_detail' hot_data.object_id %}"
-                                       target="_blank">{{ hot_data.content_object.title }}</a>
-                                    ({{ hot_data.read_num }})
+                                       target="_blank">{{ hot_data.content_object.title|truncatechars:22 }}</a>
+                                    <span>({{ hot_data.read_num }})</span>
                                 </li>
                             {% empty %}
                                 <li>昨天暂时没有热门博客</li>
@@ -175,8 +176,8 @@
                         <ul class="list">
                             {% for hot_blog in seven_day_HotBlog %}
                                 <li><a href="{% url 'blog:blog_detail' hot_blog.id %}"
-                                       target="_blank">{{ hot_blog.title }}</a>
-                                    ({{ hot_blog.read_num_sum }})
+                                       target="_blank">{{ hot_blog.title|truncatechars:22 }}</a>
+                                    <span>({{ hot_blog.read_num_sum }})</span>
                                 </li>
                             {% empty %}
                                 <li>过去7日暂时没有热门博客</li>

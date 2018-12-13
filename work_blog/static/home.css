@@ -65,6 +65,9 @@ div.home-block ul.list a{
     color: #333;
     font-size: 16px;
 }
+div.home-block ul.list li span {
+    float: right;
+}
 ul.nav-tabs {
     border-bottom: 2px rgba(17, 12, 13, 0.97) solid;
 }
