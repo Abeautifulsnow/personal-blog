@@ -68,6 +68,7 @@ class UserIP(models.Model):
     """
     ip = models.CharField(max_length=30, verbose_name='IP地址')
     visit_count = models.IntegerField(default=0, verbose_name='访问次数')
+    visit_time = models.DateTimeField(auto_now=True, verbose_name='访问时间')
 
     class Meta:
         verbose_name = '访问用户信息'
