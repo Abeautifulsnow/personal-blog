@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f59d8126-a1cb-4b06-82b8-5f07277a7dda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -91,14 +90,14 @@
         <counts>
           <entry key="Django Console" value="14" />
           <entry key="css" value="578" />
-          <entry key="html" value="1354" />
+          <entry key="html" value="1387" />
           <entry key="py" value="2432" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="578" />
-          <entry key="HTML" value="1354" />
+          <entry key="HTML" value="1387" />
           <entry key="Python" value="2446" />
         </counts>
       </usages-collector>
@@ -118,8 +117,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="179" column="43" selection-start-line="179" selection-start-column="43" selection-end-line="179" selection-end-column="43" />
+            <state relative-caret-position="235">
+              <caret line="162" column="104" selection-start-line="162" selection-start-column="104" selection-end-line="162" selection-end-column="104" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
@@ -225,7 +224,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="31" />
     <option name="y" value="69" />
     <option name="width" value="1221" />
@@ -338,7 +337,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1366" height="769" extended-state="7" />
+    <frame x="0" y="-1" width="1366" height="769" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16414523" />
@@ -677,8 +676,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="179" column="43" selection-start-line="179" selection-start-column="43" selection-end-line="179" selection-end-column="43" />
+        <state relative-caret-position="235">
+          <caret line="162" column="104" selection-start-line="162" selection-start-column="104" selection-end-line="162" selection-end-column="104" />
           <folding>
             <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
