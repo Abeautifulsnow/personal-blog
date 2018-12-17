@@ -72,7 +72,7 @@ div.blog-content ul,ol {
     margin-left: 2em;
 }
 div.blog-content pre {
-    font-size: larger;
+    font-size: initial;
 } 
 div.blog-more{
     margin-top: 1em;
