@@ -53,7 +53,7 @@ div#content_left div.raw {
     margin-right: 2em;
 }
 div.blog-content{
-    letter-spacing: 1pt;
+    /*letter-spacing: 1pt;*/
     line-height: 1.5;
     margin-bottom: 2em;
     margin-top: 2em;
@@ -73,6 +73,7 @@ div.blog-content ul,ol {
 }
 div.blog-content pre {
     font-size: initial;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace !important;
 } 
 div.blog-more{
     margin-top: 1em;

@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f59d8126-a1cb-4b06-82b8-5f07277a7dda" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/static/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/blog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/prism.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/prism.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog_detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,14 +76,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="24" />
+          <entry key="css" value="25" />
           <entry key="html" value="49" />
           <entry key="py" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="24" />
+          <entry key="CSS" value="25" />
           <entry key="HTML" value="49" />
           <entry key="Python" value="52" />
         </counts>
@@ -93,14 +91,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Django Console" value="28" />
-          <entry key="css" value="826" />
+          <entry key="css" value="843" />
           <entry key="html" value="1691" />
           <entry key="py" value="2608" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="826" />
+          <entry key="CSS" value="843" />
           <entry key="HTML" value="1691" />
           <entry key="Python" value="2636" />
         </counts>
@@ -112,21 +110,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/blog.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/blog_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="333" column="67" selection-start-line="333" selection-start-column="67" selection-end-line="333" selection-end-column="67" />
-              <folding>
-                <element signature="e#512#531#0#DjangoTemplate" />
-                <element signature="e#10570#17120#0#HTML" />
-              </folding>
+            <state relative-caret-position="103">
+              <caret line="55" column="4" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -222,8 +207,8 @@
         <option value="$PROJECT_DIR$/apps/blog/views.py" />
         <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/static/blog.css" />
         <option value="$PROJECT_DIR$/templates/blog_detail.html" />
+        <option value="$PROJECT_DIR$/static/blog.css" />
       </list>
     </option>
   </component>
@@ -233,7 +218,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="31" />
     <option name="y" value="69" />
     <option name="width" value="1221" />
@@ -349,7 +334,7 @@
     <frame x="0" y="-1" width="1366" height="769" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1709531" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1709531" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -696,8 +681,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/blog.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
+        <state relative-caret-position="103">
+          <caret line="55" column="4" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="26" />
         </state>
       </provider>
     </entry>
