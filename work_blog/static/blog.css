@@ -36,9 +36,21 @@ ul.blog-info-description li{
 div#blog_container {
     margin-top: 6em;
     margin-bottom: 2em;
+    min-width: 90%;
+}
+div#blog_container div.raw {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+div#content_left {
     background-color: #ffffff;
     border: solid 2px #c3c3c3;
-    border-radius: 50px;
+    border-radius: 25px;
+    margin-bottom: 1em;
+}
+div#content_left div.raw {
+    margin-left: 2em;
+    margin-right: 2em;
 }
 div.blog-content{
     letter-spacing: 1pt;
@@ -90,6 +102,7 @@ div.comment div.blog-comment {
 } */
 div.comment>blockquote {
     font-size: unset!important;
+    margin-left: 2em;
 }
 div.reply div.reply-comment {
     margin-top: 1em;
@@ -127,4 +140,23 @@ li.panel-detail {
     margin-bottom: .5rem;
     padding-bottom: .3rem;
     border-bottom: 2px solid #eee;
+}
+div#content_right {
+    background-color: #ffffff;
+    border: solid 2px #c3c3c3;
+    border-radius: 15px;
+    padding: 0.8em;
+    margin-bottom: 0.5em;
+}
+div#content_right h3 {
+    padding-bottom: 0.5em;
+    border-bottom: 1px #ccc solid;
+    margin-top: 10px !important;
+}
+div#content_right li {
+    margin-bottom: 0.2em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: initial;
 }
