@@ -35,6 +35,9 @@ footer {
     font-size: 16px;
     color: azure;
 }
+footer span img {
+    vertical-align: text-bottom !important;
+}
 div.page-not-found {
     position: absolute;
     top: 50%;
