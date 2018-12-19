@@ -72,7 +72,7 @@ div.blog-content ul,ol {
     margin-left: 2em;
 }
 div.blog-content pre {
-    font-size: initial;
+    font-size: unset;
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace !important;
 } 
 div.blog-more{
