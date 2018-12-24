@@ -165,7 +165,9 @@
                     <ul>
                         {% for rand_blog in rand_blogs %}
                             <li>
-                                <a href="{% url 'blog:blog_detail' rand_blog.id %}" target="_blank">{{ rand_blog.title }}</a>
+                                <a href="{% url 'blog:blog_detail' rand_blog.id %}" target="_blank" title="{{ rand_blog.title }}">
+                                    {{ rand_blog.title }}
+                                </a>
                             </li>
                         {% endfor %}
                     </ul>
