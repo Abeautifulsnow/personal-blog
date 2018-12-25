@@ -18,9 +18,18 @@ from django.urls import path, re_path, include
 from django.views.static import serve
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from rest_framework import routers
 
 from work_blog.views import HomeView
 from work_blog.settings.base import MEDIA_URL, MEDIA_ROOT
+from api import views as apiview
+
+router = routers.DefaultRouter()
+router.register(r'users', apiview.UserListSet)
+router.register(r'blogtypes', apiview.BlogTypeListSet)
+router.register(r'tags', apiview.TagListSet)
+router.register(r'blogs', apiview.BlogListSet)
+
 
 urlpatterns = [
     # 主页
@@ -38,5 +47,7 @@ urlpatterns = [
     # # 图片文件上传途径
     # re_path(r'^media/(?P<path>.*)/$', serve, {'document_root': MEDIA_ROOT})
 ]
+urlpatterns.append(path('api/v1/', include(router.urls)))
+urlpatterns.append(path('api_auth/', include('rest_framework.urls', namespace='rest_framework')))
 
 urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
