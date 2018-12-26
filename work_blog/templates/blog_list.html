@@ -134,7 +134,7 @@
                         </span>
                     </div>
                     <div class="panel-body">
-                        <ul>
+                        <ul class="blog-dates">
                             {% for blog_date, blog_count in blog_dates.items %}
                                 <li class="panel-detail">
                                     <a href="{% url 'blog:blogs_by_date' blog_date.year blog_date.month %}">
@@ -154,7 +154,7 @@
                         </span>
                     </div>
                     <div class="panel-body">
-                        <ul>
+                        <ul class="blog-tags">
                             {% for tag in tags %}
                                 <li class="panel-detail">
                                     <a href="{% url 'blog:blogs_tags' tag.id %}" id="{{ forloop.counter }}"

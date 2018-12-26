@@ -5,7 +5,13 @@ div#panel_left div.panel-heading {
     font-size: 20px;
     color: black;
 }
-ul.blog-types{
+ul.blog-types {
+    list-style-type: none;
+}
+ul.blog-dates {
+    list-style-type: none;
+}
+ul.blog-tags {
     list-style-type: none;
 }
 div.blog:not(:last-child){

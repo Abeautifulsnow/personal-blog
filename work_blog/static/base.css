@@ -9,9 +9,9 @@ body{
     background: url("/static/kuanpin.jpeg") no-repeat center center fixed!important;
     background-size: 100% 100%!important;
 }
-ul{
+/* ul{
     list-style-type: none!important;
-}
+} */
 ul.navbar-right {
     margin-right: 0;
 }
