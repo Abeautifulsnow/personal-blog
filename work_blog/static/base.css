@@ -18,7 +18,7 @@ ul.navbar-right {
 span.logout-skip {
     text-align: center;
     position: absolute;
-    font-size: 6rem
+    font-size: 6rem;
     margin-top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -75,4 +75,22 @@ div#panel_info div.panel-body>ul>li {
 div#panel_info div.panel-body>ul>li>a {
     float: right;
     padding-right: 2em;
+}
+div.fixed-top {
+    padding: 0;
+    background-color: #ffffff;
+}
+div.fixed-top a.gotop {
+    background: url("/static/totop.png") no-repeat center center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    -webkit-transition: all .2s ease-in-out;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #fff;
+    z-index: 99998;
 }

@@ -172,6 +172,11 @@
             </div>
         </div>
     </div>
+    <!--返回顶部-->
+    <div class="fixed-top">
+        <a id="btn_top" class="gotop" title="返回顶部"></a>
+    </div>
+
     <footer class="fixed-bottom">
         <div class="container-fluid">
             <span>
@@ -200,7 +205,7 @@
           $(window).resize(footerPosition);
         });
 
-
+        //=====================模态框ajax代码=====================
         $('#login_modal_form').submit(function(event){
             event.preventDefault();
             $.ajax({
@@ -219,7 +224,7 @@
             });
         });
 
-        //顶部搜索栏搜索方法
+        //======================顶部搜索栏搜索方法=======================
         function search_click(){
             var keywords = $('#search_keywords').val(),
                 request_url = "/blog/?keywords="+keywords;
@@ -231,6 +236,45 @@
         $('#jsSearchBtn').on('click',function(){
             search_click()
         });
+
+        // ===================返回顶部js代码======================
+        // onload事件
+        window.onload = function () {
+            // 获取id元素
+            var obtn = document.getElementById("btn_top");
+            var isTop = true;
+            var timer = null;
+            // 获取页面可视高度
+            var clientHeight = document.documentElement.clientHeight||document.body.clientHeight;
+
+            // onscroll滚动条滚动时触发
+            window.onscroll = function () {
+                // 在滚动的时候添加判断
+                var topH = document.documentElement.scrollTop||document.body.scrollTop;
+                if(topH > clientHeight/2) {
+                    obtn.style.display = "block";
+                }else {
+                    obtn.style.display = "none";
+                }
+            }
+
+            // 按钮点击时触发
+            obtn.onclick = function () {
+                // 设置定时器：setInternal会不停地调用函数，直到clearInterval被调用或者窗口被关闭
+                timer = setInterval(function () {
+                    // 获取滚动条距离顶部的高度
+                    var topH = document.documentElement.scrollTop||document.body.scrollTop;
+                    // 设置滚动速度
+                    var stepLength = Math.ceil(topH/6);
+                    document.documentElement.scrollTop=document.body.scrollTop=topH-stepLength;
+                    isTop = true;
+                    // 判断滚动条是否为0，并触发clearInterval函数
+                    if(topH == 0) {
+                        clearInterval(timer);
+                    }
+                }, 30);
+            }
+        }
 
     </script>
 
