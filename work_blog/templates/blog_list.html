@@ -25,11 +25,11 @@
                                     <a href="{% url 'blog:blog_detail' blog.id %}">{{ blog.title }}</a>
                                 </h3>
                                 {% if request.user.is_superuser %}
-                                    <p>{{ blog.content|striptags|truncatechars:100 }}&nbsp;
+                                    <p>{{ blog.content|striptags|safe|truncatechars:100 }}&nbsp;
                                         <a href="/admin/blog/blog/{{ blog.id }}/change/" target="_blank" style="text-decoration:underline;">编辑</a>
                                     </p>
                                 {% else %}
-                                    <p>{{ blog.content|striptags|truncatechars:100 }}&nbsp;</p>
+                                    <p>{{ blog.content|striptags|safe|truncatechars:100 }}&nbsp;</p>
                                 {% endif %}
                                 <br>
                                 <p class="blog-info">
