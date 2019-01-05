@@ -4,14 +4,22 @@ from blog.models import BlogType, Tag, Blog, UserIP, VisitNum
 
 # @admin.register(BlogType)---注册方式二
 class BlogTypeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'type_name']
+    list_display = ['id', 'type_name', 'get_blog_num']
     list_display_links = ['type_name']
+
+    def get_blog_num(self, obj):
+        return obj.blog_set.all().count()
+    get_blog_num.short_description = '博客数量'
 
 
 class TagAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name']
+    list_display = ['id', 'name', 'get_blog_num']
     list_display_links = ['name']
     list_per_page = 30
+
+    def get_blog_num(self, obj):
+        return obj.blog_set.all().count()
+    get_blog_num.short_description = '博客数量'
 
 
 # @admin.register(Blog)---注册方式二

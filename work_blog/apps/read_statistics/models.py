@@ -19,6 +19,7 @@ class ReadNumExpandMethod(object):
             return readnum.read_num
         except exceptions.ObjectDoesNotExist:
             return 0
+    get_blog_readnum.short_description = '阅读数量统计'
 
 
 class ReadNum(models.Model):
