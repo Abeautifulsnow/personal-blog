@@ -182,13 +182,12 @@ div.blog-content blockquote {
 
 /* all_types.html */
 div.blog-types {
-    margin-bottom: inherit;
+    display: flow-root;
 }
 div.blog-dates {
-    margin-bottom: inherit;
-}
+    display: flow-root;}
 div.blog-tags {
-    margin-bottom: inherit;
+    display: flow-root;
 }
 div.blog-types h4 {
     margin-left: 0.8em;
@@ -212,17 +211,20 @@ li.types-detail {
     list-style-type: none;
     margin-left: 1em;
     margin-right: 0.4em;
+    margin-bottom: 0.5em;
     float: left;
 }
 li.dates-detail {
     list-style-type: none;
     margin-left: 1em;
     margin-right: 0.4em;
+    margin-bottom: 0.5em;
     float: left;
 }
 li.tags-detail {
     list-style-type: none;
     margin-left: 1em;
     margin-right: 0.4em;
+    margin-bottom: 0.5em;
     float: left;
 }
