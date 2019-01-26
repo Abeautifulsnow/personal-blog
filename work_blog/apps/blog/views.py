@@ -154,6 +154,17 @@ def blogs_tags(request, tag_pk):
     return render(request, 'blogs_tags.html', context)
 
 
+def all_types(request):
+    """
+    博客分类、日期归档、标签总归档
+    :param request:
+    :return:
+    """
+    all_blogs = Blog.objects.all()
+    context = get_blog_list_common(request, all_blogs)
+    return render(request, 'all_types.html', context)
+
+
 def blog_detail(request, blog_pk):
     """
     博客详情页

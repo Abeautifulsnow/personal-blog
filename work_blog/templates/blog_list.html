@@ -18,7 +18,8 @@
                     <div class="panel-heading">
                         {% block blog_list_title %}博客列表{% endblock blog_list_title %}
                     </div>
-                    <div class="panel-body">
+                    {% block type_list %}
+                        <div class="panel-body">
                          {% for blog in page_of_blogs.object_list %}
                             <div class="blog">
                                 <h3>
@@ -53,6 +54,7 @@
                             </div>
                         {% endfor %}
                     </div>
+                    {% endblock type_list %}
                 </div>
 
                 <!-- 分页显示 -->
@@ -108,7 +110,7 @@
                     <div class="panel-heading">
                         <span style="color: black">博客分类</span>
                         <span style="float: right">
-                            <a href="#">更多>>></a>
+                            <a href="{% url 'blog:all_types' %}">更多>>></a>
                         </span>
                     </div>
                     <div class="panel-body">
@@ -130,7 +132,7 @@
                     <div class="panel-heading">
                         <span style="color: black;">日期归档</span>
                         <span style="float: right">
-                            <a href="#">更多>>></a>
+                            <a href="{% url 'blog:all_types' %}">更多>>></a>
                         </span>
                     </div>
                     <div class="panel-body">
@@ -150,7 +152,7 @@
                     <div class="panel-heading">
                         <span style="color: black">标签云</span>
                         <span style="float: right">
-                            <a href="#">更多>>></a>
+                            <a href="{% url 'blog:all_types' %}">更多>>></a>
                         </span>
                     </div>
                     <div class="panel-body">
@@ -159,7 +161,7 @@
                                 <li class="panel-detail">
                                     <a href="{% url 'blog:blogs_tags' tag.id %}" id="{{ forloop.counter }}"
                                         title="【{{ tag.name }}】标签下有{{ tag.blog_set.count }}篇博客">
-                                        {{ tag.name }}({{ tag.blog_set.count }}篇)
+                                        {{ tag.name }}
                                     </a>
                                 </li>
                             {% empty %}

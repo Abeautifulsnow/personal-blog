@@ -94,3 +94,6 @@ div.fixed-top a.gotop {
     color: #fff;
     z-index: 99998;
 }
+ul.info-types {
+    list-style-type: none;
+}

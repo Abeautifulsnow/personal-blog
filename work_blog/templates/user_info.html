@@ -22,7 +22,7 @@
                             <span style="color: black">个人信息</span>
                         </div>
                         <div class="panel-body">
-                            <ul class="blog-types">
+                            <ul class="info-types">
                                 <li>用户名： {{ user.username }}&nbsp;<a href="{% url 'user:change_password' %}">[修改密码]</a></li>
                                 <li>昵称： {{ user.get_nickname }}&nbsp;<a href="{% url 'user:change_nickname' %}?from={{ request.get_full_path }}">[修改昵称]</a></li>
                                 <li>邮箱： {% if user.email %}{{ user.email }}{% else %}未绑定&nbsp;<a href="{% url 'user:bind_email' %}">[绑定邮箱]</a>{% endif %}</li>

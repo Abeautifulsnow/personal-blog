@@ -39,7 +39,7 @@
                                 {% for blog_tag in blog.tag.all %}
                                     <a href="{% url 'blog:blogs_tags' blog_tag.id %}">
                                         {{ blog_tag.name }}
-                                    </a>
+                                    </a>|
                                 {% endfor %}
                             </li>
                             &nbsp;&nbsp;&nbsp;&nbsp;

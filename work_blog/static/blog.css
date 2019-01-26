@@ -148,6 +148,14 @@ li.panel-detail {
     padding-bottom: .3rem;
     border-bottom: 2px solid #eee;
 }
+ul.blog-tags li.panel-detail {
+    border-bottom: none!important;
+    float: left;
+}
+ul.blog-tags li.panel-detail a {
+    display: block;
+    margin-right: 0.8em;
+}
 div#content_right {
     background-color: #ffffff;
     border: solid 2px #c3c3c3;
@@ -170,4 +178,51 @@ div#content_right li {
 div.blog-content blockquote {
     background-color: #abb51985 !important;
     border-left: 5px solid #a59d3f;
+}
+
+/* all_types.html */
+div.blog-types {
+    margin-bottom: inherit;
+}
+div.blog-dates {
+    margin-bottom: inherit;
+}
+div.blog-tags {
+    margin-bottom: inherit;
+}
+div.blog-types h4 {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #735959;
+}
+div.blog-dates h4 {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #735959;
+}
+div.blog-tags h4 {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #735959;
+}
+li.types-detail {
+    list-style-type: none;
+    margin-left: 1em;
+    margin-right: 0.4em;
+    float: left;
+}
+li.dates-detail {
+    list-style-type: none;
+    margin-left: 1em;
+    margin-right: 0.4em;
+    float: left;
+}
+li.tags-detail {
+    list-style-type: none;
+    margin-left: 1em;
+    margin-right: 0.4em;
+    float: left;
 }

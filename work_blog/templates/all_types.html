@@ -1,0 +1,60 @@
+{% extends 'blog_list.html' %}
+
+{% block title %}所有分类{% endblock title %}
+
+{% block blog_list_title %}
+    所有分类&nbsp;&nbsp;
+    <a href="{% url 'blog:blog_list' %}">查看全部博客</a>
+{% endblock blog_list_title %}
+
+{% block type_list %}
+    <!-- 博客分类 -->
+    <div class="blog-types">
+        <h4>博客分类</h4>
+        {% for blog_type in blog_types %}
+            <ul id="blog_types">
+                <li class="types-detail">
+                    <a href="{% url 'blog:blogs_type' blog_type.id %}">
+                        {{ blog_type.type_name }}({{ blog_type.blog_set.count }}篇)
+                    </a>
+                </li>
+            </ul>
+        {% empty %}
+            <p style="font-size: xx-large; margin: 20px">敬请期待</p>
+        {% endfor %}
+    </div>
+    <br>
+    <!-- 日期归档 -->
+    <div class="blog-dates">
+        <h4>日期归档</h4>
+        {% for blog_date, blog_count in blog_dates.items %}
+            <ul id="blog_dates">
+                <li class="dates-detail">
+                    <a href="{% url 'blog:blogs_by_date' blog_date.year blog_date.month %}">
+                        {{ blog_date|date:'Y年m月' }}({{ blog_count }}篇)
+                    </a>
+                </li>
+            </ul>
+        {% empty %}
+            <p style="font-size: xx-large; margin: 20px">敬请期待</p>
+        {% endfor %}
+    </div>
+    <br>
+    <!-- 标签云 -->
+    <div class="blog-tags">
+        <h4>标签云</h4>
+        {% for blog_tag in tags %}
+            <ul id="blog_tags">
+                <li class="tags-detail">
+                    <a href="{% url 'blog:blogs_tags' blog_tag.id %}" id="{{ forloop.counter }}"
+                        title="【{{ blog_tag.name }}】标签下有{{ tag.blog_set.count }}篇博客">
+                        {{ blog_tag.name }}({{ blog_tag.blog_set.count }}篇)
+                    </a>
+                </li>
+            </ul>
+        {% empty %}
+            <p style="font-size: xx-large; margin: 20px">敬请期待</p>
+        {% endfor %}
+    </div>
+    <br>
+{% endblock type_list %}
