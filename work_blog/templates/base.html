@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock title %}</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}">
     {% block custom_css %}{% endblock custom_css %}
@@ -40,7 +41,6 @@
                             <span class="glyphicon glyphicon-pencil"></span>&nbsp;新建
                         </a>
                     </li>
-
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <span class="glyphicon glyphicon-link"></span>&nbsp;相关链接 <span class="caret"></span>
@@ -54,8 +54,8 @@
                                 <span class="glyphicon glyphicon-globe"></span>&nbsp;Github
                             </a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="https://gitee.com/">
-                                <span class="glyphicon glyphicon-globe"></span>&nbsp;码云
+                            <li><a href="https://pypi.org/">
+                                <span class="glyphicon glyphicon-globe"></span>&nbsp;PyPi
                             </a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="https://docs.djangoproject.com/">
@@ -66,6 +66,11 @@
                                 <span class="glyphicon glyphicon-globe"></span>&nbsp;Python教程
                             </a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'blog:rss' %}">
+                            <span class="fa fa-rss"></span>&nbsp;RSS
+                        </a>
                     </li>
                 </ul>
 

@@ -1,6 +1,7 @@
 # encoding: utf-8
 from django.urls import path, re_path
 from blog.views import blog_detail, blogs_type, blogs_tags, blog_list, blogs_by_date, all_types
+from blog.feeds import BlogRssFeed
 
 urlpatterns = [
     path("", blog_list, name="blog_list"),
@@ -14,6 +15,8 @@ urlpatterns = [
     path('date/<int:year>/<int:month>', blogs_by_date, name="blogs_by_date"),
     # 所有分类归纳页
     path('all_types/', all_types, name="all_types"),
+    # rss订阅
+    path('rss/', BlogRssFeed(), name='rss'),
 ]
 
 app_name = 'blog'
