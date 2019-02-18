@@ -241,6 +241,12 @@
         $('#jsSearchBtn').on('click',function(){
             search_click()
         });
+        // ======================搜索框绑定回车键=====================
+        $('#search_keywords').bind('keypress', function (event) {
+            if (event.keyCode == '13') {
+                $('#jsSearchBtn').click();
+            }
+        });
 
         // ===================返回顶部js代码======================
         // onload事件
