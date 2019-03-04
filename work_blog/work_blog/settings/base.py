@@ -214,3 +214,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 20
 }
+
+# SESSION设置
+from django.conf.global_settings import SESSION_COOKIE_AGE
+SESSION_COOKIE_AGE = 604800     # 会话过期时间7天
