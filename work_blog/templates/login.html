@@ -26,6 +26,13 @@
                                     {{ field }}
                                     <p class="text-danger">{{ field.errors.as_text }}</p>
                                 {% endfor %}
+                                <div>
+                                    <span>第三方账号登录：</span>
+                                    <a href="{% url 'social:begin' 'github' %}" title="Github登录">
+                                        <img src="/static/git.jpg" style="width: 32px; height: 32px;" alt="git登录">
+                                    </a>
+                                </div>
+                                <hr>
                                 <span class="text-danger">{{ login_form.non_field_errors }}</span>
                                 <div class="clearfix"></div>
                                 <a href="{% url 'user:forgot_password' %}" class="pull-left">忘记密码?</a>

@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'likes',
     # 用户user
     'user',
+    # 第三方登录
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +79,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # 在user的context_processors.py文件中自定义login_modal_form,然后自动在模板中引用
                 'user.context_processors.login_modal_form',
+                # github配置
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -102,6 +107,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# github配置
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 
 # Internationalization
@@ -218,3 +229,12 @@ REST_FRAMEWORK = {
 # SESSION设置
 from django.conf.global_settings import SESSION_COOKIE_AGE
 SESSION_COOKIE_AGE = 604800     # 会话过期时间7天
+
+# social_django配置
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_GITHUB_KEY = '9a106792450c1c0dca1a'
+SOCIAL_AUTH_GITHUB_SECRET = '01bc491011d73df93f483ee19b0f83ce7e7b743d'
+SOCIAL_AUTH_GITHUB_USE_OPENID_AS_USERNAME = True
+
+# 登陆成功后的回调路由
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/' # 登陆成功之后的路由

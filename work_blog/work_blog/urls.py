@@ -35,6 +35,7 @@ urlpatterns = [
     # 主页
     path('', HomeView, name="home"),
     path('admin/', admin.site.urls),
+    path('login/github/', include('social_django.urls', namespace='social')),
     path('ckeditor', include('ckeditor_uploader.urls')),
     # 博客列表
     path('blog/', include('blog.urls', namespace='blog')),
@@ -44,6 +45,7 @@ urlpatterns = [
     path("likes/", include('likes.urls', namespace='likes')),
     # 用户URL
     path("user/", include('user.urls', namespace='user')),
+    # github登录
     # # 图片文件上传途径
     # re_path(r'^media/(?P<path>.*)/$', serve, {'document_root': MEDIA_ROOT})
 ]
