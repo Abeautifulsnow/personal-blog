@@ -231,9 +231,11 @@ from django.conf.global_settings import SESSION_COOKIE_AGE
 SESSION_COOKIE_AGE = 604800     # 会话过期时间7天
 
 # social_django配置
+github_key = os.environ['github_key']
+github_secret = os.environ['github_secret']
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
-SOCIAL_AUTH_GITHUB_KEY = '9a106792450c1c0dca1a'
-SOCIAL_AUTH_GITHUB_SECRET = '62d762b93394a4f45128e47a1775937e5ff483c5'
+SOCIAL_AUTH_GITHUB_KEY = github_key
+SOCIAL_AUTH_GITHUB_SECRET = github_secret
 SOCIAL_AUTH_GITHUB_USE_OPENID_AS_USERNAME = True
 
 # 登陆成功后的回调路由
