@@ -36,11 +36,13 @@
                             <span class="glyphicon glyphicon-book"></span>&nbsp;博客
                         </a>
                     </li>
-                    <li>
-                        <a href="/admin/blog/blog/add/">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;新建
-                        </a>
-                    </li>
+                    {% if user.is_staff or user.is_superuser %}
+                        <li>
+                            <a href="/admin/blog/blog/add/">
+                                <span class="glyphicon glyphicon-pencil"></span>&nbsp;新建
+                            </a>
+                        </li>
+                    {% endif %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <span class="glyphicon glyphicon-link"></span>&nbsp;相关链接 <span class="caret"></span>
