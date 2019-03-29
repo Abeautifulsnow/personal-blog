@@ -179,7 +179,17 @@
                         猜你喜欢
                     </h3>
                     <ul id="like_blogs_list">
-                        <li>猜测中，请稍等...</li>
+                        {% for guess_blog in guess_blogs %}
+                            <li>
+                                <a href="{% url 'blog:blog_detail' guess_blog.id %}" target="_blank" title="{{ guess_blog.title }}">
+                                    {{ guess_blog.title }}
+                                </a>
+                            </li>
+                        {% empty %}
+                            <li>
+                                <span>猜测中，请稍等...</span>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

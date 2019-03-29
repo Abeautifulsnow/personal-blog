@@ -179,14 +179,18 @@ def blog_detail(request, blog_pk):
     pre_blog = Blog.objects.filter(create_time__lt=blog.create_time).first()
 
     # 随机推荐
-    rand_count = 12
-    rand_blogs = Blog.objects.exclude(id=blog_pk).order_by('?')[:rand_count]
+    rand_blogs = Blog.objects.exclude(id=blog_pk).order_by('?')[:12]
+
+    # 猜你喜欢
+    tag = blog.tag.all()
+    guess_blogs = Blog.objects.filter(tag__in=tag).exclude(id=blog_pk).order_by('?')[:12]
 
     context = {
         'blog': blog,
         'pre_blog': pre_blog,
         'next_blog': next_blog,
         'rand_blogs': rand_blogs,
+        'guess_blogs': guess_blogs,
     }
     response = render(request, 'blog_detail.html', context)  # 响应
     # step1：给浏览器设置cookie，用于判断
