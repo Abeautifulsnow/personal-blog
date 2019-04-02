@@ -101,15 +101,17 @@
                 <div class="col-sm-4 col-sm-offset-1 hot-data">
                     <div class="home-block">
                         <!-- 今天24小时内的热门博客 -->
-                        <h4 class="home-block-title">最新博客发表</h4>
+                        <h4 class="home-block-title">
+                            <span class="glyphicon glyphicon-sort-by-order"></span>&nbsp;最新博客发表
+                        </h4>
                         <ul class="list">
                             {% for new_blog in new_blogs %}
                                 <li>
                                     <a href="{% url 'blog:blog_detail' new_blog.id %}"
                                        target="_blank" title="{{ new_blog.title }}">
-                                        {{ new_blog.title|truncatechars:26 }}
+                                        {{ new_blog.title|truncatechars:28 }}
                                     </a>
-                                    <span>({{ new_blog.get_blog_readnum }})</span>
+                                    {% comment %} <span>({{ new_blog.get_blog_readnum }})</span> {% endcomment %}
                                 </li>
                             {% empty %}
                                 <li>暂时没有新博客发表</li>
@@ -129,9 +131,9 @@
                                 <li>
                                     <a href="{% url 'blog:blog_detail' blog.id %}"
                                        target="_blank" title="{{ blog.title }}">
-                                        {{ blog.title|truncatechars:26 }}
+                                        {{ blog.title|truncatechars:28 }}
                                     </a>
-                                    <span>({{ blog_readnum }})</span>
+                                    {% comment %} <span>({{ blog_readnum }})</span> {% endcomment %}
                                 </li>
                             {% empty %}
                                 <li>今天暂时没有热门博客</li>
@@ -145,15 +147,17 @@
                 <div class="col-sm-4 hot-data">
                     <div class="home-block">
                         <!-- 今天24小时内的热门博客 -->
-                        <h4 class="home-block-title">今天阅读热榜</h4>
+                        <h4 class="home-block-title">
+                            <span class="glyphicon glyphicon-sort-by-order"></span>&nbsp;今天阅读热榜
+                        </h4>
                         <ul class="list">
                             {% for hot_data in today_HotData %}
                                 <li>
                                     <a href="{% url 'blog:blog_detail' hot_data.object_id %}"
                                        target="_blank" title="{{ hot_data.content_object.title }}">
-                                        {{ hot_data.content_object.title|truncatechars:26 }}
+                                        {{ hot_data.content_object.title|truncatechars:28 }}
                                     </a>
-                                    <span>({{ hot_data.read_num }})</span>
+                                    {% comment %} <span>({{ hot_data.read_num }})</span> {% endcomment %}
                                 </li>
                             {% empty %}
                                 <li>今天暂时没有热门博客</li>
@@ -164,15 +168,17 @@
                 <div class="col-sm-4 hot-data">
                     <div class="home-block">
                         <!-- 昨天24小时内的热门博客 -->
-                        <h4 class="home-block-title">昨日阅读热榜</h4>
+                        <h4 class="home-block-title">
+                            <span class="glyphicon glyphicon-sort-by-order"></span>&nbsp;昨日阅读热榜
+                        </h4>
                         <ul class="list">
                             {% for hot_data in yesterday_HotData %}
                                 <li>
                                     <a href="{% url 'blog:blog_detail' hot_data.object_id %}"
                                        target="_blank" title="{{ hot_data.content_object.title }}">
-                                        {{ hot_data.content_object.title|truncatechars:26 }}
+                                        {{ hot_data.content_object.title|truncatechars:28 }}
                                     </a>
-                                    <span>({{ hot_data.read_num }})</span>
+                                    {% comment %} <span>({{ hot_data.read_num }})</span> {% endcomment %}
                                 </li>
                             {% empty %}
                                 <li>昨天暂时没有热门博客</li>
@@ -183,15 +189,17 @@
                 <div class="col-sm-4 hot-data">
                     <div class="home-block">
                         <!-- 过去7天的热门博客 -->
-                        <h4 class="home-block-title">7天阅读热榜</h4>
+                        <h4 class="home-block-title">
+                            <span class="glyphicon glyphicon-sort-by-order"></span>&nbsp;7天阅读热榜
+                        </h4>
                         <ul class="list">
                             {% for hot_blog in seven_day_HotBlog %}
                                 <li>
                                     <a href="{% url 'blog:blog_detail' hot_blog.id %}"
                                        target="_blank" title="{{ hot_blog.title }}">
-                                        {{ hot_blog.title|truncatechars:25 }}
+                                        {{ hot_blog.title|truncatechars:28 }}
                                     </a>
-                                    <span>({{ hot_blog.read_num_sum }})</span>
+                                    {% comment %} <span>({{ hot_blog.read_num_sum }})</span> {% endcomment %}
                                 </li>
                             {% empty %}
                                 <li>过去7日暂时没有热门博客</li>
