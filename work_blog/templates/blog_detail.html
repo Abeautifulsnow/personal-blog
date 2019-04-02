@@ -35,14 +35,6 @@
                                 </a>
                             </li>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <li>标签：
-                                {% for blog_tag in blog.tag.all %}
-                                    <a href="{% url 'blog:blogs_tags' blog_tag.id %}">
-                                        {{ blog_tag.name }}
-                                    </a>|
-                                {% endfor %}
-                            </li>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <li>发表日期：{{ blog.create_time|date:'Y-m-d G:i:s' }}</li>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <li>阅读数({{ blog.get_blog_readnum }})</li>
@@ -51,9 +43,18 @@
                         </ul>
                         <div class="blog-content">{{ blog.content|safe }}</div>
 
+                        <!-- 标签 -->
+                        <div class="blog-tag">
+                            <span class="glyphicon glyphicon-tag" title="标签"></span>
+                            {% for blog_tag in blog.tag.all %}
+                                <a class="tags" href="{% url 'blog:blogs_tags' blog_tag.id %}">
+                                    {{ blog_tag.name }}
+                                </a>
+                            {% endfor %}
+                        </div>
 
                         <!-- 点赞功能 -->
-                        <div class="like" onclick="LikeChange(this, '{% get_content_type blog %}', {{ blog.id }})">
+                        <div class="like pull-right" onclick="LikeChange(this, '{% get_content_type blog %}', {{ blog.id }})">
                             <span class="glyphicon glyphicon-thumbs-up {% get_like_status blog %}" title="点赞数"></span>
                             <span class="liked-num">{% get_liked_num blog %}</span>
                             <span>喜欢</span>
