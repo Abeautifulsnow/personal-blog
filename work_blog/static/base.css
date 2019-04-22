@@ -6,7 +6,7 @@ body{
     flex-direction: column;
     /*margin-top: 70px!important;*/
     /*background-color: #c2c2c226!important;*/
-    background: url("/static/kuanpin.jpeg") no-repeat center center fixed!important;
+    background: url("/static/kuanpin.jpg") no-repeat center center fixed!important;
     background-size: 100% 100%!important;
 }
 /* ul{
