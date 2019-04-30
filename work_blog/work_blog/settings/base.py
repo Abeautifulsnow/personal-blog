@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'likes',
     # 用户user
     'user',
+    'erweima',
     # 第三方登录
     'social_django',
 ]
