@@ -46,8 +46,7 @@ urlpatterns = [
     # 用户URL
     path("user/", include('user.urls', namespace='user')),
     # 二维码
-    path('erweima/', include('erweima.urls', namespace='erweima')),
-    # github登录
+    # path('erweima/', include('erweima.urls', namespace='erweima')),
     # # 图片文件上传途径
     # re_path(r'^media/(?P<path>.*)/$', serve, {'document_root': MEDIA_ROOT})
 ]

@@ -49,9 +49,11 @@ INSTALLED_APPS = [
     'erweima',
     # 第三方登录
     'social_django',
+    'django_hosts',
 ]
 
 MIDDLEWARE = [
+    'django_hosts.middleware.HostsRequestMiddleware',
     # 全局cache
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -63,9 +65,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
      # 全局cache
     'django.middleware.cache.FetchFromCacheMiddleware',
+    'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
 ROOT_URLCONF = 'work_blog.urls'
+
+# django_hosts配置
+ROOT_HOSTCONF = 'work_blog.hosts'
+DEFAULT_HOST = 'www'
 
 TEMPLATES = [
     {
