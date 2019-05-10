@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f59d8126-a1cb-4b06-82b8-5f07277a7dda" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_blog/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/work_blog/settings/base.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,120 +15,8 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1894595140">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="10" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.33" value="1" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="10" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="css" value="12" />
-          <entry key="html" value="37" />
-          <entry key="py" value="137" />
-          <entry key="pyi" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CSS" value="12" />
-          <entry key="HTML" value="37" />
-          <entry key="Python" value="137" />
-          <entry key="PythonStub" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="css" value="379" />
-          <entry key="html" value="4918" />
-          <entry key="py" value="11764" />
-          <entry key="py@work_blog" value="96" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CSS" value="379" />
-          <entry key="CommandLine" value="96" />
-          <entry key="HTML" value="4918" />
-          <entry key="Python" value="11764" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="919866194">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="13" />
-          <entry key="project.open.time.0" value="9" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.34" value="1" />
-          <entry key="project.open.time.37" value="2" />
-          <entry key="project.open.time.38" value="1" />
-          <entry key="project.open.time.39" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="18" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="css" value="30" />
-          <entry key="html" value="63" />
-          <entry key="http" value="1" />
-          <entry key="ico" value="1" />
-          <entry key="js" value="2" />
-          <entry key="py" value="63" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CSS" value="30" />
-          <entry key="HTML" value="63" />
-          <entry key="Image" value="1" />
-          <entry key="JavaScript" value="2" />
-          <entry key="Python" value="63" />
-          <entry key="Scratch" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="Django Console" value="28" />
-          <entry key="css" value="944" />
-          <entry key="html" value="2962" />
-          <entry key="py" value="2639" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CSS" value="944" />
-          <entry key="HTML" value="2962" />
-          <entry key="Python" value="2667" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="240" column="33" selection-start-line="240" selection-start-column="33" selection-end-line="240" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -161,6 +51,7 @@
       <find>margin-right:</find>
       <find>22</find>
       <find>xml</find>
+      <find>STATICFILES</find>
     </findStrings>
     <replaceStrings>
       <replace>on_delete=models.CASCADE</replace>
@@ -214,20 +105,14 @@
         <option value="$PROJECT_DIR$/templates/blog_detail.html" />
         <option value="$PROJECT_DIR$/apps/api/views.py" />
         <option value="$PROJECT_DIR$/work_blog/urls.py" />
-        <option value="$PROJECT_DIR$/work_blog/settings/base.py" />
         <option value="$PROJECT_DIR$/static/base.css" />
         <option value="$PROJECT_DIR$/templates/blog_list.html" />
         <option value="$PROJECT_DIR$/apps/blog/models.py" />
         <option value="$PROJECT_DIR$/static/blog.css" />
+        <option value="$PROJECT_DIR$/work_blog/settings/base.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="31" />
@@ -241,7 +126,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -249,22 +133,19 @@
               <item name="work_blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="work_blog" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="work_blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="work_blog" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/django/My_python/django/work_blog/comment/views.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../python小项目" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -329,8 +210,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541934437722</updated>
+      <workItem from="1557459843740" duration="8752000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8752000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -344,7 +229,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="769" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16717096" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20468278" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -358,8 +243,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.7511592" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32921174" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.5116279" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.58423495" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.51076925" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.5830769" />
       <window_info anchor="bottom" id="manage.py@work_blog" order="13" weight="0.47523218" />
       <window_info active="true" anchor="bottom" id="REST Client" order="14" weight="0.46522412" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -397,9 +282,20 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -413,79 +309,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/add_blog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bind_email.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog_edit.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blogs_by_date.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/error.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/brown_paper.css" />
-    <entry file="file://$PROJECT_DIR$/templates/blogs_tags.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blogs_type.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/django/template/library.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="99" column="8" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/likes/templatetags/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/read_statistics/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/user/context_processors.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/user/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/comment/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/django/db/models/query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-151">
-          <caret line="973" column="8" selection-start-line="973" selection-start-column="8" selection-end-line="973" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/likes/templatetags/likes_tags.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -548,13 +371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="123" selection-start-line="12" selection-start-column="123" selection-end-line="12" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -591,13 +407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work_blog/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="65" selection-start-line="50" selection-start-column="65" selection-end-line="50" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -628,9 +437,7 @@
     <entry file="file://$PROJECT_DIR$/favicon.ico">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
     <entry file="file://$PROJECT_DIR$/apps/blog/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
@@ -652,13 +459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2958">
           <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/work_blog/settings/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-385">
-          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -710,10 +510,147 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#22#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work_blog/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#225#234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/social_django/context_processors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/social_core/backends/weixin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <folding>
+            <element signature="e#114#158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/social_core/backends/github.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding>
+            <element signature="e#117#147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding>
+            <element signature="e#17#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/social_django/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/social_django/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work_blog/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="37" column="77" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="33" column="38" selection-start-line="28" selection-start-column="32" selection-end-line="33" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/django/conf/global_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="605" column="1" lean-forward="true" selection-start-line="601" selection-end-line="605" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/django/conf/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="200" selection-start-line="200" selection-end-line="200" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/compressor/finders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/compressor/filters/css_default.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/workblog/lib/python3.6/site-packages/compressor/filters/cssmin/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work_blog/settings/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="242" column="53" selection-start-line="242" selection-start-column="14" selection-end-line="242" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/all_types.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/add_blog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-483" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="240" column="33" selection-start-line="240" selection-start-column="33" selection-end-line="240" selection-end-column="33" />
+        <state relative-caret-position="629">
+          <caret line="212" column="13" selection-start-line="212" selection-start-column="13" selection-end-line="212" selection-end-column="13" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#footer#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
