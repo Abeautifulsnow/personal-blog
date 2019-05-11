@@ -50,8 +50,6 @@ INSTALLED_APPS = [
     # 第三方登录
     'social_django',
     'django_hosts',
-    # 静态文件压缩
-    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -147,27 +145,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-]
-
-# django_comprocessor配置
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # compressor
-    'compressor.finders.CompressorFinder',
-]
-
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
-COMPRESS_CSS_FILTERS = [
-    # creates absolute urls from relative ones
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    # css minimizer
-    'compressor.filters.cssmin.CSSMinFilter',
-]
-
-COMPRESS_JS_FILTERS = [
-    'compressor.filters.jsmin.JSMinFilter'
 ]
 
 # MEDIA配置

@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% load compress %}
 {% load hosts %}
 
 <!DOCTYPE html>
@@ -12,18 +11,14 @@
     <meta id="keywords" name="keywords" content="非马梦衢的博客网站">
     <meta id="description" name="description" content="分享 Python 全栈开发、爬虫、数据分析等相关的技术文章，热点资源，全栈程序员的成长之路。">
 
-    {% compress css %}
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}">
     {% block custom_css %}{% endblock custom_css %}
-    {% endcompress %}
 
-    {% compress js %}
     <script src="{% static 'jquery-1.12.4.min.js' %}" type="text/javascript"></script>
     <script src="{% static 'bootstrap-3.3.7/js/bootstrap.min.js' %}" type="text/javascript"></script>
     <script src="{% static 'highcharts.js' %}"></script>
-    {% endcompress %}
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
@@ -308,9 +303,7 @@
 
     </script>
 
-{% compress js %}
 {% block custom_js %}{% endblock custom_js %}
-{% endcompress %}
 
 </body>
 </html>
