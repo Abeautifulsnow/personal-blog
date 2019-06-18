@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap_admin',
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

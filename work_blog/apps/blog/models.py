@@ -82,7 +82,7 @@ class VisitNum(models.Model):
     """
     访问网站的总次数
     """
-    all_count = models.IntegerField(default=0, verbose_name='网站访问总次数')
+    all_count = models.IntegerField(default=1, verbose_name='网站访问总次数')
 
     class Meta:
         verbose_name = '网站访问总次数'
