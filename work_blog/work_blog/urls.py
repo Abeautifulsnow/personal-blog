@@ -33,24 +33,22 @@ router.register(r'blogs', apiview.BlogListSet)
 
 urlpatterns = [
     # 主页
-    path('', HomeView, name="home"),
-    path('admin/', admin.site.urls),
-    path('login/github/', include('social_django.urls', namespace='social')),
-    path('ckeditor', include('ckeditor_uploader.urls')),
-    # 博客列表
-    path('blog/', include('blog.urls', namespace='blog')),
-    # 博客评论
-    path('comment/', include('comment.urls', namespace='comment')),
-    # 点赞
-    path("likes/", include('likes.urls', namespace='likes')),
-    # 用户URL
-    path("user/", include('user.urls', namespace='user')),
+    path("", HomeView, name="home"),
+    path("admin/", admin.site.urls),
+    path("login/github/", include("social_django.urls", namespace="social")),
+    path("ckeditor", include("ckeditor_uploader.urls")),
+    # app url register
+    path("blog/", include("blog.urls", namespace="blog")),
+    path("comment/", include("comment.urls", namespace="comment")),
+    path("likes/", include("likes.urls", namespace="likes")),
+    path("user/", include("user.urls", namespace="user")),
+    # rest api register enter
+    path("api/v1/", include(router.urls)),
+    path("api_auth/", include("rest_framework.urls", namespace="rest_framework"))
     # 二维码
     # path('erweima/', include('erweima.urls', namespace='erweima')),
-    # # 图片文件上传途径
+    # 图片文件上传途径
     # re_path(r'^media/(?P<path>.*)/$', serve, {'document_root': MEDIA_ROOT})
 ]
-urlpatterns.append(path('api/v1/', include(router.urls)))
-urlpatterns.append(path('api_auth/', include('rest_framework.urls', namespace='rest_framework')))
 
 urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)

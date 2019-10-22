@@ -12,6 +12,18 @@
 
 {% block nav_home_active %}active{% endblock %}
 
+{% block rel_link %}
+    <ul class="dropdown-menu">
+        {% for link_item in related_links %}
+            <li><a href="{{ link_item.link_url }}">
+                <span class="glyphicon glyphicon-globe"></span>&nbsp;{{ link_item.link_name }}
+            </a></li>
+            <li role="separator" class="divider"></li>
+        {% endfor %}
+    </ul>
+{% endblock rel_link %}
+
+
 {% block content %}
     <div class="body-header">
         <h3 class="home-content">
@@ -75,13 +87,12 @@
                         <div role="tabpanel" class="tab-pane" id="profile">
                             
                             <p>
-                                本站是基于python3+django2.1+bootstrap3开发;
-                                其它内容博主正在努力丰富中，敬请关注^_^
+                                {{ about_site.site_desc }}
                             </p>
                             
                         </div>
                         <div role="tabpanel" class="tab-pane" id="messages">
-                            <p>博主正在努力丰富中，敬请关注。。。</p>
+                            <p>{{ expectation.expect_desc }}</p>
                         </div>
                     </div>
                 </div>

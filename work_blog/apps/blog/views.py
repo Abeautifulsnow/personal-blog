@@ -13,8 +13,10 @@ from django.template import RequestContext
 from .models import *
 from work_blog.settings.base import EACH_PAGE_BLOGS_NUM
 from read_statistics.utils import read_statistics_once_read
+
 # from .forms import BlogForm
 from user.models import UserProfile
+
 # Create your views here.
 
 # 装饰器，管理员判断
@@ -38,24 +40,24 @@ def get_blog_list_common(request, all_blogs):
     """
     共同代码模板
     """
-    blog_types = BlogType.objects.all()
+    blog_types = BlogType.objects.all()[:15]
     tags = Tag.objects.all()
-    blog_dates = Blog.objects.dates('create_time', 'month', order='DESC')
     # 博客分页
-    p = Paginator(all_blogs, EACH_PAGE_BLOGS_NUM)   # 每each_page_blogs_num篇分一页
-    page_num = request.GET.get('page', 1)   # 获取URL的页码参数（GET请求）
+    p = Paginator(all_blogs, EACH_PAGE_BLOGS_NUM)  # 每each_page_blogs_num篇分一页
+    page_num = request.GET.get("page", 1)  # 获取URL的页码参数（GET请求）
     # 获取当前页码下的博客
     page_of_blogs = p.get_page(page_num)
     # 获取当前页码
     current_page_num = page_of_blogs.number
     # 获取当前页码的前后各两页的页码范围
-    page_range = list(range(max(current_page_num - 2, 1), current_page_num)) + \
-                list(range(current_page_num, min(current_page_num + 2, p.num_pages) + 1))
+    page_range = list(range(max(current_page_num - 2, 1), current_page_num)) + list(
+        range(current_page_num, min(current_page_num + 2, p.num_pages) + 1)
+    )
     # 加上省略页码标记...
     if page_range[0] - 1 >= 2:
-        page_range.insert(0, '...')
+        page_range.insert(0, "...")
     if p.num_pages - page_range[-1] >= 2:
-        page_range.append('...')
+        page_range.append("...")
     # 加上首页和尾页
     if page_range[0] != 1:
         page_range.insert(0, 1)
@@ -81,19 +83,21 @@ def get_blog_list_common(request, all_blogs):
     """
 
     # 获取日期归档的博客分类数量（方案一：字典方式;方案二：annotate方式，略麻烦）
-    blog_dates = Blog.objects.dates('create_time', 'month', order='DESC')
+    blog_dates = Blog.objects.dates("create_time", "month", order="DESC")[:10]
+    # key: blog_date, value:blog_count
     blog_dates_dict = {}
     for blog_date in blog_dates:
-        blog_count = Blog.objects.filter(create_time__year=blog_date.year, 
-                                        create_time__month=blog_date.month ).count()
+        blog_count = Blog.objects.filter(
+            create_time__year=blog_date.year, create_time__month=blog_date.month
+        ).count()
         blog_dates_dict[blog_date] = blog_count
 
     context = {
-        'page_of_blogs': page_of_blogs,
-        'tags': tags,
-        'blog_types': blog_types,
-        'page_range': page_range,
-        'blog_dates': blog_dates_dict,
+        "page_of_blogs": page_of_blogs,
+        "tags": tags,
+        "blog_types": blog_types,
+        "page_range": page_range,
+        "blog_dates": blog_dates_dict,
     }
     return context
 
@@ -105,13 +109,15 @@ def blog_list(request):
     all_blogs = Blog.objects.all()
 
     # 搜索功能
-    search_keywords = request.GET.get('keywords', '')
+    search_keywords = request.GET.get("keywords", "")
     if search_keywords:
-        all_blogs = all_blogs.filter(Q(title__icontains=search_keywords)|Q(content__icontains=search_keywords))
+        all_blogs = all_blogs.filter(
+            Q(title__icontains=search_keywords) | Q(content__icontains=search_keywords)
+        )
 
     # 调用get_blog_list_common函数中的context
     context = get_blog_list_common(request, all_blogs)
-    return render(request, 'blog_list.html', context)
+    return render(request, "blog_list.html", context)
 
 
 def blogs_type(request, blog_type_pk):
@@ -124,8 +130,8 @@ def blogs_type(request, blog_type_pk):
     # 调用get_blog_list_common函数中的context
     context = get_blog_list_common(request, all_blogs)
     # 在context字典中新增加key为'blog_type'的字典
-    context['blog_type'] = blog_type
-    return render(request, 'blogs_type.html', context)
+    context["blog_type"] = blog_type
+    return render(request, "blogs_type.html", context)
 
 
 def blogs_by_date(request, year, month):
@@ -133,13 +139,13 @@ def blogs_by_date(request, year, month):
     博客按日期分类
     """
     all_blogs = Blog.objects.filter(create_time__year=year, create_time__month=month)
-    blog_by_date = '%s年%s月' % (year, month)
+    blog_by_date = "%s年%s月" % (year, month)
 
     # 调用get_blog_list_common函数中的context
     context = get_blog_list_common(request, all_blogs)
     # 在context字典中新增加key为'blog_by_date'的字典
-    context['blog_by_date'] = blog_by_date
-    return render(request, 'blogs_by_date.html', context)
+    context["blog_by_date"] = blog_by_date
+    return render(request, "blogs_by_date.html", context)
 
 
 def blogs_tags(request, tag_pk):
@@ -150,8 +156,8 @@ def blogs_tags(request, tag_pk):
     all_blogs = Blog.objects.filter(tag=tag)
 
     context = get_blog_list_common(request, all_blogs)
-    context['tag'] = tag
-    return render(request, 'blogs_tags.html', context)
+    context["tag"] = tag
+    return render(request, "blogs_tags.html", context)
 
 
 def all_types(request):
@@ -161,8 +167,15 @@ def all_types(request):
     :return:
     """
     all_blogs = Blog.objects.all()
+    blog_dates_all = Blog.objects.dates("create_time", "month", order="DESC")
+    blog_types_all = BlogType.objects.all()
     context = get_blog_list_common(request, all_blogs)
-    return render(request, 'all_types.html', context)
+    new_dict = {
+        'blog_dates_all': blog_dates_all,
+        'blog_types_all': blog_types_all
+    }
+    context.update(new_dict)
+    return render(request, "all_types.html", context)
 
 
 def blog_detail(request, blog_pk):
@@ -179,20 +192,22 @@ def blog_detail(request, blog_pk):
     pre_blog = Blog.objects.filter(create_time__lt=blog.create_time).first()
 
     # 随机推荐
-    rand_blogs = Blog.objects.exclude(id=blog_pk).order_by('?')[:12]
+    rand_blogs = Blog.objects.exclude(id=blog_pk).order_by("?")[:12]
 
     # 猜你喜欢
     tag = blog.tag.all()
-    guess_blogs = Blog.objects.filter(tag__in=tag).exclude(id=blog_pk).order_by('?')[:12]
+    guess_blogs = (
+        Blog.objects.filter(tag__in=tag).exclude(id=blog_pk).order_by("?")[:12]
+    )
 
     context = {
-        'blog': blog,
-        'pre_blog': pre_blog,
-        'next_blog': next_blog,
-        'rand_blogs': rand_blogs,
-        'guess_blogs': guess_blogs,
+        "blog": blog,
+        "pre_blog": pre_blog,
+        "next_blog": next_blog,
+        "rand_blogs": rand_blogs,
+        "guess_blogs": guess_blogs,
     }
-    response = render(request, 'blog_detail.html', context)  # 响应
+    response = render(request, "blog_detail.html", context)  # 响应
     # step1：给浏览器设置cookie，用于判断
-    response.set_cookie(read_cookie_key, 'true')  # 阅读cookie标记
+    response.set_cookie(read_cookie_key, "true")  # 阅读cookie标记
     return response

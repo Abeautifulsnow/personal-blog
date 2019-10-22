@@ -10,9 +10,20 @@ from blog.models import Blog, BlogType
 from blog.utils import change_info
 from read_statistics.utils import get_seven_days_ReadData, get_today_HotData, get_yesterday_HotData
 from read_statistics.models import ReadNum
+from blog_site.models import RelatedLinks, SiteInfo, Expectation
 
 
-def get_seven_day_HotBlogs():
+def list_link_site_expect(obj):
+    """
+    展示links、about_site、expectation
+    :param obj: model对象
+    :return:
+    """
+    result = obj.objects.all()
+    return result
+
+
+def get_seven_day_hotblogs():
     """
     7天热门阅读
     """
@@ -31,12 +42,18 @@ def HomeView(request):
     首页
     """
     blog_nums = Blog.objects.all().count()
-    blog_types = BlogType.objects.all()
+    blog_types = BlogType.objects.all()[:15]
     blog_content_type = ContentType.objects.get_for_model(Blog)
     dates, read_nums = get_seven_days_ReadData(blog_content_type)
     today_HotData = get_today_HotData(blog_content_type)
     yesterday_HotData = get_yesterday_HotData(blog_content_type)
     new_blogs = Blog.objects.all().order_by('-create_time')[:12]
+    # 获取相关链接
+    list_links = list_link_site_expect(RelatedLinks)
+    # 获取关于站点信息
+    about_site = list_link_site_expect(SiteInfo).first()
+    # 敬请期待
+    expectation = list_link_site_expect(Expectation).first()
     
     # 获取所有博客阅读量并排序
     blog_dict = {}
@@ -49,9 +66,9 @@ def HomeView(request):
     # 获取7天热门博客的缓存数据
     seven_day_HotBlog = cache.get('seven_day_HotBlog')
     if seven_day_HotBlog is None:
-        seven_day_HotBlog = get_seven_day_HotBlogs()
+        seven_day_HotBlog = get_seven_day_hotblogs()
         cache.set('seven_day_HotBlog', seven_day_HotBlog, 3600)
-    # 测试
+        # 测试
         print('calc')
     else:
         print('Use cache ')
@@ -67,5 +84,8 @@ def HomeView(request):
         'seven_day_HotBlog': seven_day_HotBlog,
         'new_blogs': new_blogs,
         'blog_dict': blog_dict,
+        'related_links': list_links,
+        'about_site': about_site,
+        'expectation': expectation,
     }
     return render(request, 'home.html', context)

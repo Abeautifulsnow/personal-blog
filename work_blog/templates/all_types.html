@@ -11,7 +11,7 @@
     <!-- 博客分类 -->
     <div class="blog-types">
         <h4>博客分类</h4>
-        {% for blog_type in blog_types %}
+        {% for blog_type in blog_types_all %}
             <ul id="blog_types">
                 <li class="types-detail">
                     <a href="{% url 'blog:blogs_type' blog_type.id %}">
@@ -27,7 +27,7 @@
     <!-- 日期归档 -->
     <div class="blog-dates">
         <h4>日期归档</h4>
-        {% for blog_date, blog_count in blog_dates.items %}
+        {% for blog_date, blog_count in blog_dates_all.items %}
             <ul id="blog_dates">
                 <li class="dates-detail">
                     <a href="{% url 'blog:blogs_by_date' blog_date.year blog_date.month %}">

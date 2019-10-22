@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # 用户user
     'user',
     'erweima',
+    'blog_site',
     # 第三方登录
     'social_django',
     'django_hosts',

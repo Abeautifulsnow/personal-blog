@@ -54,27 +54,28 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <span class="glyphicon glyphicon-link"></span>&nbsp;相关链接 <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="https://www.cnblogs.com/">
-                                <span class="glyphicon glyphicon-globe"></span>&nbsp;cnblog
-                            </a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="https://github.com/">
-                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Github
-                            </a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="https://pypi.org/">
-                                <span class="glyphicon glyphicon-globe"></span>&nbsp;PyPi
-                            </a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="https://docs.djangoproject.com/">
-                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Django教程
-                            </a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="https://www.python.org/">
-                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Python教程
-                            </a></li>
-                        </ul>
+                        {% block rel_link %}{% endblock rel_link %}
+{#                        <ul class="dropdown-menu">#}
+{#                            <li><a href="https://www.cnblogs.com/">#}
+{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;cnblog#}
+{#                            </a></li>#}
+{#                            <li role="separator" class="divider"></li>#}
+{#                            <li><a href="https://github.com/">#}
+{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Github#}
+{#                            </a></li>#}
+{#                            <li role="separator" class="divider"></li>#}
+{#                            <li><a href="https://pypi.org/">#}
+{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;PyPi#}
+{#                            </a></li>#}
+{#                            <li role="separator" class="divider"></li>#}
+{#                            <li><a href="https://docs.djangoproject.com/">#}
+{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Django教程#}
+{#                            </a></li>#}
+{#                            <li role="separator" class="divider"></li>#}
+{#                            <li><a href="https://www.python.org/">#}
+{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Python教程#}
+{#                            </a></li>#}
+{#                        </ul>#}
                     </li>
                     <li>
                         <a href="{% url 'blog:rss' %}">
