@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load hosts %}
+{% load links_tags %}
 
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -54,7 +55,15 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <span class="glyphicon glyphicon-link"></span>&nbsp;相关链接 <span class="caret"></span>
                         </a>
-                        {% block rel_link %}{% endblock rel_link %}
+                        <ul class="dropdown-menu">
+                            {% display_links as links_list %}
+                            {% for link_item in links_list %}
+                                <li><a href="{{ link_item.link_url }}">
+                                    <span class="glyphicon glyphicon-globe"></span>&nbsp;{{ link_item.link_name }}
+                                </a></li>
+                                <li role="separator" class="divider"></li>
+                            {% endfor %}
+                        </ul>
 {#                        <ul class="dropdown-menu">#}
 {#                            <li><a href="https://www.cnblogs.com/">#}
 {#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;cnblog#}

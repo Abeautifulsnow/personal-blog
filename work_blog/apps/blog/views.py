@@ -169,12 +169,17 @@ def all_types(request):
     all_blogs = Blog.objects.all()
     blog_dates_all = Blog.objects.dates("create_time", "month", order="DESC")
     blog_types_all = BlogType.objects.all()
+    # 获取日期和当月数量，并组成字典
+    blog_dates_all_dict = {}
+    for blog_date in blog_dates_all:
+        blog_count = Blog.objects.filter(
+            create_time__year=blog_date.year, create_time__month=blog_date.month
+        ).count()
+        blog_dates_all_dict[blog_date] = blog_count
+
     context = get_blog_list_common(request, all_blogs)
-    new_dict = {
-        'blog_dates_all': blog_dates_all,
-        'blog_types_all': blog_types_all
-    }
-    context.update(new_dict)
+    context['blog_dates_all'] = blog_dates_all_dict
+    context['blog_types_all'] = blog_types_all
     return render(request, "all_types.html", context)
 
 

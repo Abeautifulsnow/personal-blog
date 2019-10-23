@@ -12,17 +12,6 @@
 
 {% block nav_home_active %}active{% endblock %}
 
-{% block rel_link %}
-    <ul class="dropdown-menu">
-        {% for link_item in related_links %}
-            <li><a href="{{ link_item.link_url }}">
-                <span class="glyphicon glyphicon-globe"></span>&nbsp;{{ link_item.link_name }}
-            </a></li>
-            <li role="separator" class="divider"></li>
-        {% endfor %}
-    </ul>
-{% endblock rel_link %}
-
 
 {% block content %}
     <div class="body-header">

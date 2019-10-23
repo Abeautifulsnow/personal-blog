@@ -10,17 +10,8 @@ from blog.models import Blog, BlogType
 from blog.utils import change_info
 from read_statistics.utils import get_seven_days_ReadData, get_today_HotData, get_yesterday_HotData
 from read_statistics.models import ReadNum
-from blog_site.models import RelatedLinks, SiteInfo, Expectation
-
-
-def list_link_site_expect(obj):
-    """
-    展示links、about_site、expectation
-    :param obj: model对象
-    :return:
-    """
-    result = obj.objects.all()
-    return result
+from blog_site.views import list_link_site_expect
+from blog_site.models import SiteInfo, Expectation
 
 
 def get_seven_day_hotblogs():
@@ -48,13 +39,11 @@ def HomeView(request):
     today_HotData = get_today_HotData(blog_content_type)
     yesterday_HotData = get_yesterday_HotData(blog_content_type)
     new_blogs = Blog.objects.all().order_by('-create_time')[:12]
-    # 获取相关链接
-    list_links = list_link_site_expect(RelatedLinks)
     # 获取关于站点信息
     about_site = list_link_site_expect(SiteInfo).first()
     # 敬请期待
     expectation = list_link_site_expect(Expectation).first()
-    
+
     # 获取所有博客阅读量并排序
     blog_dict = {}
     nums = ReadNum.objects.all().order_by('-read_num')[:12]
@@ -84,7 +73,6 @@ def HomeView(request):
         'seven_day_HotBlog': seven_day_HotBlog,
         'new_blogs': new_blogs,
         'blog_dict': blog_dict,
-        'related_links': list_links,
         'about_site': about_site,
         'expectation': expectation,
     }
