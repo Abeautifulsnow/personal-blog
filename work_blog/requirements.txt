@@ -12,7 +12,7 @@ django-compressor==2.2
 django-hosts==3.0
 django-js-asset==1.1.0
 django-redis==4.10.0
-django-simpleui==2.1.4.618
+django-simpleui==3.3
 djangorestframework==3.9.0
 entrypoints==0.3
 flake8==3.7.7
