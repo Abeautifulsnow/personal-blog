@@ -20,8 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,19 +36,16 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     # 我的应用
     'blog',
-    # 阅读统计
     'read_statistics',
-    # 博客评论
     'comment',
-    # 点赞app
     'likes',
-    # 用户user
     'user',
     'erweima',
     'blog_site',
-    # 第三方登录
+    # 第三方
     'social_django',
     'django_hosts',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -218,7 +213,7 @@ CACHES = {
         'LOCATION': 'redis://127.0.0.1:6379',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            'PASSWORD': os.environ['redis_passwd'],
+            # 'PASSWORD': os.environ['redis_passwd'],
         },
     },
 }
@@ -249,3 +244,15 @@ SOCIAL_AUTH_GITHUB_USE_OPENID_AS_USERNAME = True
 
 # 登陆成功后的回调路由
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/' # 登陆成功之后的路由
+
+# Whoosh配置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
+}
+# 每页显示搜索结果数目为10
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 5
+# 自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

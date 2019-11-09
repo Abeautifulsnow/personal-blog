@@ -157,12 +157,15 @@
                 </ul>
 
                 <!-- 搜索功能框 -->
-                <div class="navbar-form navbar-right">
-                    <input id="search_keywords" type="text" class="form-control" data-value="blog" value="" placeholder="请输入搜索关键词">
-                    <button id="jsSearchBtn" type="submit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </div>
+                {% block whoosh_search %}
+                    <div class="navbar-form navbar-right">
+                        <input id="search_keywords" type="text" class="form-control" data-value="blog" value=""
+                               placeholder="请输入搜索关键词">
+                        <button id="jsSearchBtn" type="submit" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                {% endblock whoosh_search %}
 
             </div>
         </div>
@@ -256,7 +259,8 @@
         //======================顶部搜索栏搜索方法=======================
         function search_click(){
             var keywords = $('#search_keywords').val(),
-                request_url = "/blog/?keywords="+keywords;
+                {#request_url = "/blog/?keywords="+keywords;#}
+                request_url = "/search/?q="+keywords;
             if(keywords == ""){
                 return
             }

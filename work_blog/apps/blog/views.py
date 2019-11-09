@@ -108,12 +108,12 @@ def blog_list(request):
     """
     all_blogs = Blog.objects.all()
 
-    # 搜索功能
-    search_keywords = request.GET.get("keywords", "")
-    if search_keywords:
-        all_blogs = all_blogs.filter(
-            Q(title__icontains=search_keywords) | Q(content__icontains=search_keywords)
-        )
+    # 搜索功能由haystack和whoosh代替
+    # search_keywords = request.GET.get("keywords", "")
+    # if search_keywords:
+    #     all_blogs = all_blogs.filter(
+    #         Q(title__icontains=search_keywords) | Q(content__icontains=search_keywords)
+    #     )
 
     # 调用get_blog_list_common函数中的context
     context = get_blog_list_common(request, all_blogs)

@@ -1,0 +1,110 @@
+{% extends 'blog_list.html' %}
+{% load highlight %}
+{% load comment_tags %}
+{% load likes_tags %}
+{% load staticfiles %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "search.css" %}">
+{% endblock custom_css %}
+
+{% block blog_list_left %}
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1">
+        {% if query %}
+            <div id="panel_left" class="panel panel-info">
+                <div class="panel-heading">
+                    {% block blog_list_title %}{% highlight query with query %}的搜索结果如下：{% endblock blog_list_title %}
+                </div>
+                <div class="panel-body">
+                    {% for result in page.object_list %}
+                        <div class="blog">
+                            <h3>
+                                <a href="{% url 'blog:blog_detail' result.object.id %}">{% highlight result.object.title with query %}</a>
+                            </h3>
+                            {% if request.user.is_superuser %}
+                                <p>{% highlight result.object.content with query max_length 120 %}&nbsp;
+                                    <a href="/admin/blog/blog/{{ result.object.id }}/change/" target="_blank"
+                                       style="text-decoration:underline;">编辑</a>
+                                </p>
+                            {% else %}
+                                <p>{% highlight result.object.content with query max_length 120 %}&nbsp;</p>
+                            {% endif %}
+                            <br>
+                            <p class="blog-info">
+                                <!-- 图标引用 -->
+                                <span class="glyphicon glyphicon-tag" title="分类"></span><a
+                                    href="{% url 'blog:blogs_type' result.object.blog_type.id %}">
+                                {{ result.object.blog_type.type_name }}</a>
+                                &nbsp;
+                                <span class="glyphicon glyphicon-time"
+                                      title="发布时间"></span>&nbsp;{{ result.object.create_time|date:"Y-m-d" }}
+                                &nbsp;
+                                <span class="glyphicon glyphicon-eye-open"
+                                      title="阅读数"></span>({{ result.object.get_blog_readnum }})
+                                &nbsp;
+                                <span class="glyphicon glyphicon-comment"
+                                      title="评论数"></span>({% get_comment_count result.object %})
+                                &nbsp;
+                                <span class="glyphicon glyphicon-thumbs-up"
+                                      title="点赞数"></span>({% get_liked_num result.object %})
+                                <!-- 图标引用 -->
+                            </p>
+                        </div>
+                    {% empty %}
+                        <div class="blog">
+                            <p>未能查询到{% highlight query with query %}有关信息，请检查关键词...</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <!-- 分页显示 -->
+            <div class="paginator" aria-label="Page navigation">
+                <ul class="pagination">
+                    <!-- 前一页 -->
+                    <li>
+                        {% if page.has_previous %}
+                            <a href="/search?q={{ query }}&amp;page={{ page.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        {% else %}
+                            <span aria-hidden="true">&laquo;</span>
+                        {% endif %}
+                    </li>
+                    <!-- 全部页码 -->
+                    {% for page_num in paginator.page_range %}
+                        {% if page_num %}
+                            {% ifequal page_num page.number %}
+                                <li class="active"><span>{{ page_num }}</span></li>
+                            {% else %}
+                                {% if page_num == '...' %}
+                                    <li><span>{{ page_num }}</span></li>
+                                {% else %}
+                                    <li><a href="/search?q={{ query }}&amp;page={{ page_num }}">{{ page_num }}</a></li>
+                                {% endif %}
+                            {% endifequal %}
+                        {% endif %}
+
+                    {% endfor %}
+                    <!-- 后一页 -->
+                    <li>
+                        {% if page.has_next %}
+                            <a href="/search?q={{ query }}&amp;page={{ page.next_page_number }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        {% else %}
+                            <span aria-hidden="true">&raquo;</span>
+                        {% endif %}
+                    </li>
+                </ul>
+                <p>
+                    共有{{ page.paginator.count }}篇博客，
+                    当前您在第{{ page.number }}页，总共有{{ page.paginator.num_pages }}页。
+                </p>
+            </div>
+            <!-- 分页显示 -->
+        {% else %}
+            {# Show some example queries to run, maybe query syntax, something else? #}
+        {% endif %}
+    </div>
+{% endblock blog_list_left %}

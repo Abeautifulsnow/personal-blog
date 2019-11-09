@@ -44,7 +44,9 @@ urlpatterns = [
     path("user/", include("user.urls", namespace="user")),
     # rest api register enter
     path("api/v1/", include(router.urls)),
-    path("api_auth/", include("rest_framework.urls", namespace="rest_framework"))
+    path("api_auth/", include("rest_framework.urls", namespace="rest_framework")),
+    # haystack
+    path('search/', include('haystack.urls')),
     # 二维码
     # path('erweima/', include('erweima.urls', namespace='erweima')),
     # 图片文件上传途径
