@@ -41,8 +41,19 @@
 
 <script type="text/javascript">
     function ReturnIndex() {
-        window.location.href = "/"
-    }
+        var rex = RegExp("tools")
+        var url = window.location.origin
+        var new_url = "http://127.0.0.1:"+window.location.port
+        if (url.match(rex)) {
+            curr_url = window.location.origin   // 获取根网址：比如：https://www.baidu.com
+            a = curr_url.split(".")[0]
+            now = a.split("//")[1]
+            window.location.href = curr_url.replace(now, "www")
+        } else {
+            console.log(new_url)
+            window.location.href = new_url
+        }
+    };
     $("#ReturnBtn").on('click', function () {
        ReturnIndex()
     });
