@@ -1,4 +1,3 @@
-{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>生成二维码</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}">
-    <script src="{% static 'jquery-1.12.4.min.js' %}" type="text/javascript"></script>
-    <script src="{% static 'bootstrap-3.3.7/js/bootstrap.min.js' %}" type="text/javascript"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         div#qrcode {
             position: absolute;
@@ -19,37 +18,60 @@
 </head>
 
 <body>
-    <div id="qrcode" class="col-lg-8 col-lg-offset-2">
-        <div class="input-group">
-            <input id="qrcode_keywords" class="form-control" type="text" value="" placeholder="请输入要生成的二维码的内容">
+<div id="qrcode" class="col-lg-8 col-lg-offset-2">
+    <div class="input-group">
             <span class="input-group-btn">
+                <button id="ReturnBtn" class="btn btn-success" type="button">返回主页</button>
+            </span>
+        <input id="qrcode_keywords" class="form-control" type="text" value="" placeholder="请输入要生成的二维码的内容">
+        <span class="input-group-btn">
                 <button id="jsQrcodeBtn" class="btn btn-primary" type="button">生成二维码</button>
             </span>
-        </div>
     </div>
+</div>
 
-    <script type="text/javascript">
-        // =======================按键事件js代码==========================
-        function Qrcode_click(){
-            var keywords = $('#qrcode_keywords').val(),   // 获取input值
-                request_url = "qrcode/"+keywords;        // 添加url
-            if(keywords == ""){
-                return
-            }
-            window.location.href = request_url
+<!-- 模态框 -->
+<div class="modal fade" id="QrcodeModal" tabindex="-1" role="dialog" aria-labelledby="QrcodeModalLabel">
+    <div class="modal-dialog" role="document" style="text-align: center;">
+        <p style="text-align: center;">生成二维码</p>
+        <!-- 生成二维码，src由js赋值 -->
+        <img class="qrcode_modal" style="-webkit-user-select: none;margin: auto;" src="">
+    </div>
+</div>
+
+<script type="text/javascript">
+    function ReturnIndex() {
+        window.location.href = "/"
+    }
+    $("#ReturnBtn").on('click', function () {
+       ReturnIndex()
+    });
+
+    // =======================按键事件js代码==========================
+    function Qrcode_click(){
+        var keywords = $('#qrcode_keywords').val();   // 获取input值
+        var cur_url = window.location.href;
+        var new_url = cur_url.replace("index", "qrcode/"+keywords)
+        if(keywords == ""){
+            alert("请输入内容")
+        } else {
+            $("#QrcodeModal").modal("show") // 显示模态框
+            $(".qrcode_modal").attr('src', new_url) // 给src赋值
+            console.log(new_url)
         }
-        // =================按钮激发函数=====================
-        $('#jsQrcodeBtn').on('click', function(){
-            Qrcode_click()
-        });
+    }
+    // =================按钮激发函数=====================
+    $('#jsQrcodeBtn').on('click', function(){
+        Qrcode_click()
+    });
 
-        // =====================绑定回车键======================
-        $('#qrcode_keywords').bind('keypress', function(event){
-            if (event.keyCode == '13') {
-                $('#jsQrcodeBtn').click();
-            }
-        });
-    </script>
+    // =====================绑定回车键======================
+    $('#qrcode_keywords').bind('keypress', function(event){
+        if (event.keyCode == '13') {
+            $('#jsQrcodeBtn').click();
+        }
+    });
+</script>
 
 </body>
 
