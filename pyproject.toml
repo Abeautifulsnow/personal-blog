@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "personal-blog"
+version = "0.1.0"
+description = ""
+authors = ["Abeautifulsnow <1491444340@qq.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.2.5"
+djangorestframework = "^3.12.4"
+django-simpleui = "^2021.6.2"
+jieba = "^0.42.1"
+Pillow = "^8.3.0"
+mysqlclient = "^2.0.3"
+qrcode = "^7.1"
+requests = "^2.25.1"
+Whoosh = "^2.7.4"
+urllib3 = "^1.26.6"
+django-hosts = "^4.0"
+haystack = "^0.42"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
