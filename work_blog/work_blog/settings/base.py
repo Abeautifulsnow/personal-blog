@@ -18,7 +18,7 @@ import sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # 定义总文件夹路径
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
-sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
+# sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 
 # Application definition
 
@@ -66,6 +66,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'work_blog.urls'
 
+# Default primary key field type to use for models that don’t have a field with primary_key=True.
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
 # django_hosts配置
 ROOT_HOSTCONF = 'work_blog.hosts'
 DEFAULT_HOST = 'www'
@@ -73,7 +76,10 @@ DEFAULT_HOST = 'www'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, "apps", "erweima", "templates")
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -213,7 +219,7 @@ CACHES = {
         'LOCATION': 'redis://127.0.0.1:6379',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            'PASSWORD': os.environ['redis_passwd'],
+            # 'PASSWORD': os.environ['redis_passwd'],
         },
     },
 }
@@ -235,12 +241,12 @@ from django.conf.global_settings import SESSION_COOKIE_AGE
 SESSION_COOKIE_AGE = 604800     # 会话过期时间7天
 
 # social_django配置
-github_key = os.environ['github_key']
-github_secret = os.environ['github_secret']
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
-SOCIAL_AUTH_GITHUB_KEY = github_key
-SOCIAL_AUTH_GITHUB_SECRET = github_secret
-SOCIAL_AUTH_GITHUB_USE_OPENID_AS_USERNAME = True
+# github_key = os.environ['github_key']
+# github_secret = os.environ['github_secret']
+# SOCIAL_AUTH_URL_NAMESPACE = 'social'
+# SOCIAL_AUTH_GITHUB_KEY = github_key
+# SOCIAL_AUTH_GITHUB_SECRET = github_secret
+# SOCIAL_AUTH_GITHUB_USE_OPENID_AS_USERNAME = True
 
 # 登陆成功后的回调路由
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/' # 登陆成功之后的路由
@@ -248,7 +254,7 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/' # 登陆成功之后的路由
 # Whoosh配置
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
     },
 }

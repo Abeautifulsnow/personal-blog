@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 {% load hosts %}
 {% load links_tags %}
 
@@ -57,42 +57,30 @@
                         </a>
                         <ul class="dropdown-menu">
                             {% display_links as links_list %}
-                            {% for link_item in links_list %}
-                                <li><a href="{{ link_item.link_url }}">
-                                    <span class="glyphicon glyphicon-globe"></span>&nbsp;{{ link_item.link_name }}
-                                </a></li>
-                                <li role="separator" class="divider"></li>
-                            {% endfor %}
+                            {% if links_list %}
+                                {% for link_item in links_list %}
+                                    <li><a href="{{ link_item.link_url }}">
+                                        <span class="glyphicon glyphicon-globe"></span>&nbsp;{{ link_item.link_name }}
+                                    </a></li>
+                                    <li role="separator" class="divider"></li>
+                                {% endfor %}
+                            {% else %}
+                                <span>暂没有相关链接</span>
+                            {% endif %}
                         </ul>
-{#                        <ul class="dropdown-menu">#}
-{#                            <li><a href="https://www.cnblogs.com/">#}
-{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;cnblog#}
-{#                            </a></li>#}
-{#                            <li role="separator" class="divider"></li>#}
-{#                            <li><a href="https://github.com/">#}
-{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Github#}
-{#                            </a></li>#}
-{#                            <li role="separator" class="divider"></li>#}
-{#                            <li><a href="https://pypi.org/">#}
-{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;PyPi#}
-{#                            </a></li>#}
-{#                            <li role="separator" class="divider"></li>#}
-{#                            <li><a href="https://docs.djangoproject.com/">#}
-{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Django教程#}
-{#                            </a></li>#}
-{#                            <li role="separator" class="divider"></li>#}
-{#                            <li><a href="https://www.python.org/">#}
-{#                                <span class="glyphicon glyphicon-globe"></span>&nbsp;Python教程#}
-{#                            </a></li>#}
-{#                        </ul>#}
                     </li>
                     <li>
                         <a href="{% url 'blog:rss' %}">
                             <span class="fa fa-rss"></span>&nbsp;RSS
                         </a>
                     </li>
+{#                    <li>#}
+{#                        <a href="{% host_url 'qrcode_home' host 'tools' %}">#}
+{#                            <span class="fa fa-balance-scale"></span>&nbsp;Qrcode#}
+{#                        </a>#}
+{#                    </li>#}
                     <li>
-                        <a href="{% host_url 'qrcode_home' host 'tools' %}">
+                        <a href="{% url 'erweima:qrcode_home' %}">
                             <span class="fa fa-balance-scale"></span>&nbsp;Qrcode
                         </a>
                     </li>
